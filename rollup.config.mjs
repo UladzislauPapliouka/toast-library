@@ -7,10 +7,18 @@ import replace from '@rollup/plugin-replace';
 
 export default {
     input: 'src/index.jsx',
-    output: {
-        file: 'build/bundle.js',
-        format: 'iife'
-    },
+    output: [
+        {
+            file: 'build/index.jsx',
+            format: "cjs",
+            sourcemap: true
+        },
+        {
+            file: 'build/index.es.js',
+            format: "esm",
+            sourcemap: true
+        }
+    ],
     plugins:[
         nodeResolve({
             extensions: [".js",".jsx"],
@@ -22,13 +30,13 @@ export default {
             'process.env.NODE_ENV': JSON.stringify( 'development' )
           }),
           commonjs(),
-          serve({
-            open: true,
-            verbose: true,
-            contentBase: ["", "public"],
-            host: "localhost",
-            port: 3000,
-          }),
-          livereload({ watch: "build" }),
+          // serve({
+          //   open: true,
+          //   verbose: true,
+          //   contentBase: ["", "public"],
+          //   host: "localhost",
+          //   port: 3000,
+          // }),
+          // livereload({ watch: "build" }),
     ]
 };

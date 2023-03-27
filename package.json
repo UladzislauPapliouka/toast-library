@@ -1,7 +1,9 @@
 {
-  "name": "toast-library",
+  "name": "toast-library-wil",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "files": ["build"],
   "repository": "https://github.com/UladzislauPapliouka/toast-library",
   "author": "Uladzislau Papliouka",
   "license": "MIT",
@@ -11,7 +13,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepare": "husky install",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
