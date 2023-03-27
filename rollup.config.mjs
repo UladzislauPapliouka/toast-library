@@ -9,7 +9,7 @@ export default {
     input: 'src/index.jsx',
     output: [
         {
-            file: 'build/index.jsx',
+            file: 'build/index.cjs',
             format: "cjs",
             sourcemap: true
         },
@@ -30,13 +30,13 @@ export default {
             'process.env.NODE_ENV': JSON.stringify( 'development' )
           }),
           commonjs(),
-          // serve({
-          //   open: true,
-          //   verbose: true,
-          //   contentBase: ["", "public"],
-          //   host: "localhost",
-          //   port: 3000,
-          // }),
-          // livereload({ watch: "build" }),
+          serve({
+            open: true,
+            verbose: true,
+            contentBase: ["", "public"],
+            host: "localhost",
+            port: 3000,
+          }),
+          livereload({ watch: "build" }),
     ]
 };

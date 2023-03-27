@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "build/index.js",
   "module": "build/index.es.js",
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
   "repository": "https://github.com/UladzislauPapliouka/toast-library",
   "author": "Uladzislau Papliouka",
   "license": "MIT",
@@ -55,6 +57,7 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.9"
   }
 }
