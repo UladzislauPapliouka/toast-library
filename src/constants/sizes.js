@@ -3,9 +3,27 @@ const paddingSizes = {
     md: 60,
 };
 const toastMaxWidth = {
-    md: 668,
+    md: 334,
 };
 const toastMaxHeight = {
-    md: 180,
+    md: 120,
 };
-export { paddingSizes, toastMaxWidth, toastMaxHeight };
+const borderRadiuses = {
+    md: 20,
+};
+const iconSizes = {
+    sm: 30,
+    md: 50,
+};
+const marginSizes = {
+    md: 20,
+};
+
+export {
+    paddingSizes,
+    toastMaxWidth,
+    toastMaxHeight,
+    borderRadiuses,
+    iconSizes,
+    marginSizes,
+};

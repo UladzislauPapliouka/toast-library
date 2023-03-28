@@ -30,7 +30,7 @@ npm manifest:
   {
     "name": "toast-library",
     "version": "1.0.0",
-    "main": "build/index.jsx",
+    "main": "build/index.js",
     "module": "build/index.es.js",
     "files": ["build"],
     "repository": "https://github.com/UladzislauPapliouka/toast-library",
