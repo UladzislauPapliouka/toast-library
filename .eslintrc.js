@@ -13,5 +13,6 @@ module.exports = {
     rules: {
         'prettier/prettier': ['error', { endOfLine: 'auto' }],
         'no-bitwise': 0,
+        'react/jsx-props-no-spreading': 0,
     },
 };

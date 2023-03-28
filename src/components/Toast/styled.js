@@ -1,36 +1,143 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const sizesMixin = (sizeName, sizes) => css`
+    gap: ${sizes.marginSizes[sizeName]}px;
+    border-radius: ${sizes.borderRadiuses[sizeName]}px;
+    padding: ${sizes.paddingSizes[sizeName] * 2}px
+        ${sizes.paddingSizes[sizeName]}px;
+
+    max-width: ${sizes.toastMaxWidth[sizeName]}px;
+    width: fit-content;
+    min-width: ${sizes.toastMinWidth[sizeName]}px;
+
+    max-height: ${sizes.toastMaxHeight[sizeName]}px;
+
+    & > svg {
+        font-size: ${sizes.iconSizes[sizeName]}px;
+        min-width: ${sizes.iconSizes[sizeName]}px;
+    }
+`;
+const titleTextSizesMixin = (sizeName, sizes) => css`
+    font-size: ${sizes.titleFontSizes[sizeName]}px;
+    max-width: ${sizes.toastMaxWidth[sizeName] -
+    sizes.paddingSizes[sizeName] -
+    sizes.iconSizes[sizeName] -
+    sizes.marginSizes[sizeName]}px;
+`;
+const descriptionTextSizesMixin = (sizeName, sizes) => css`
+    font-size: ${sizes.descriptionFontSizes[sizeName]}px;
+    max-width: ${sizes.toastMaxWidth[sizeName] -
+    sizes.paddingSizes[sizeName] * 4 -
+    sizes.iconSizes[sizeName] -
+    sizes.marginSizes[sizeName]}px;
+`;
+
+const closeButtonSizesMixin = (sizeName, sizes) => css`
+    font-size: ${sizes.titleFontSizes[sizeName]}px;
+    top: ${sizes.paddingSizes[sizeName] / 2}px;
+    right: ${sizes.paddingSizes[sizeName] / 2}px;
+`;
 
 const ToastWrapper = styled.div`
     position: relative;
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    font-family: HelveticaNeueCyr, Regular;
-    font-weight: 900;
-    font-size: 30px;
-    border-radius: ${({ theme: { sizes } }) => sizes.borderRadiuses.md}px;
-    padding: ${({ theme: { sizes } }) => sizes.paddingSizes.md}px
-        ${({ theme: { sizes } }) => sizes.paddingSizes.sm}px;
     background-color: ${({ type, theme: { colors } }) =>
         colors[type].background};
     color: ${({ type = 'info', theme: { colors } }) => colors[type].color};
-    max-width: ${({ theme: { sizes } }) => sizes.toastMaxWidth.md}px;
-    max-height: ${({ theme: { sizes } }) => sizes.toastMaxHeight.md}px;
-    gap: ${({ theme: { sizes } }) => sizes.marginSizes.md}px;
-    & > svg {
-        font-size: ${({ theme: { sizes } }) => sizes.iconSizes.md}px;
+
+    ${({ theme: { sizes } }) => sizesMixin('xxl', sizes)};
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.xl}px) {
+        ${({ theme: { sizes } }) => sizesMixin('xl', sizes)};
+    }
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.lg}px) {
+        ${({ theme: { sizes } }) => sizesMixin('lg', sizes)};
+    }
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.md}px) {
+        ${({ theme: { sizes } }) => sizesMixin('md', sizes)};
+    }
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.sm}px) {
+        ${({ theme: { sizes } }) => sizesMixin('sm', sizes)};
     }
 `;
 const CloseButton = styled.button`
     position: absolute;
-    font-size: ${({ theme: { sizes } }) => sizes.iconSizes.sm}px;
     padding: 0;
-    right: 10px;
     color: inherit;
-    top: 10px;
     background: transparent;
     border: none;
     cursor: pointer;
+    ${({ theme: { sizes } }) => closeButtonSizesMixin('xxl', sizes)};
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.xl}px) {
+        ${({ theme: { sizes } }) => closeButtonSizesMixin('xl', sizes)};
+    }
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.lg}px) {
+        ${({ theme: { sizes } }) => closeButtonSizesMixin('lg', sizes)};
+    }
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.md}px) {
+        ${({ theme: { sizes } }) => closeButtonSizesMixin('md', sizes)};
+    }
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.sm}px) {
+        ${({ theme: { sizes } }) => closeButtonSizesMixin('sm', sizes)};
+    }
 `;
+const ToastDataWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+const ToastTitle = styled.span`
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    ${({ theme: { sizes } }) => titleTextSizesMixin('xxl', sizes)};
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.xl}px) {
+        ${({ theme: { sizes } }) => titleTextSizesMixin('xl', sizes)};
+    }
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.lg}px) {
+        ${({ theme: { sizes } }) => titleTextSizesMixin('lg', sizes)};
+    }
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.md}px) {
+        ${({ theme: { sizes } }) => titleTextSizesMixin('md', sizes)};
+    }
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.sm}px) {
+        ${({ theme: { sizes } }) => titleTextSizesMixin('sm', sizes)};
+    }
+`;
+const ToastDescription = styled.span`
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    ${({ theme: { sizes } }) => descriptionTextSizesMixin('xxl', sizes)};
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.xl}px) {
+        ${({ theme: { sizes } }) => descriptionTextSizesMixin('xl', sizes)};
+    }
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.lg}px) {
+        ${({ theme: { sizes } }) => descriptionTextSizesMixin('lg', sizes)};
+    }
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.md}px) {
+        ${({ theme: { sizes } }) => descriptionTextSizesMixin('md', sizes)};
+    }
+    @media screen and (max-width: ${({ theme: { sizes } }) =>
+            sizes.displayBreackpoints.sm}px) {
+        ${({ theme: { sizes } }) => descriptionTextSizesMixin('sm', sizes)};
+    }
+`;
+
 export default ToastWrapper;
-export { CloseButton };
+export { CloseButton, ToastTitle, ToastDescription, ToastDataWrapper };

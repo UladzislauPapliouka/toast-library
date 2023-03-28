@@ -11,6 +11,12 @@ export default {
             options: ['info', 'warning', 'error', 'success'],
             control: { type: 'select' },
         },
+        toastTitle: {
+            defaultValue: 'Test',
+        },
+        toastDescription: {
+            defaultValue: 'Description',
+        },
     },
 };
 
