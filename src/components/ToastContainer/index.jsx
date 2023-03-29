@@ -14,9 +14,11 @@ const ToastContainer = () => {
                 <ToastPositionWrapper
                     onClick={() =>
                         singleton.getInstance().createToast({
-                            title: 'rd',
+                            title: 'rddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
                             position: positions[positionName],
                             type: 'success',
+                            description:
+                                'dffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff',
                         })
                     }
                     data-cy={positions[positionName]}

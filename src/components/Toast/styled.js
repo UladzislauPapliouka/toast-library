@@ -1,26 +1,31 @@
 import styled, { css } from 'styled-components';
 
 const sizesMixin = (sizeName, sizes) => css`
+    margin: ${sizes.marginSizes[sizeName] / 2}px;
     gap: ${sizes.marginSizes[sizeName]}px;
     border-radius: ${sizes.borderRadiuses[sizeName]}px;
-    padding: ${sizes.paddingSizes[sizeName] * 2}px
-        ${sizes.paddingSizes[sizeName]}px;
+    padding: ${sizes.paddingSizes[sizeName]}px ${sizes.paddingSizes[sizeName]}px;
 
     max-width: ${sizes.toastMaxWidth[sizeName]}px;
     width: fit-content;
     min-width: ${sizes.toastMinWidth[sizeName]}px;
 
     max-height: ${sizes.toastMaxHeight[sizeName]}px;
-
+    grid-template-columns:
+        ${sizes.iconSizes[sizeName]}px
+        1fr
+        ${sizes.titleFontSizes[sizeName]}px;
     & > svg {
         font-size: ${sizes.iconSizes[sizeName]}px;
         min-width: ${sizes.iconSizes[sizeName]}px;
+        flex-grow: 1;
     }
 `;
 const titleTextSizesMixin = (sizeName, sizes) => css`
     font-size: ${sizes.titleFontSizes[sizeName]}px;
     max-width: ${sizes.toastMaxWidth[sizeName] -
-    sizes.paddingSizes[sizeName] -
+    sizes.paddingSizes[sizeName] * 2 -
+    sizes.titleFontSizes[sizeName] * 2 -
     sizes.iconSizes[sizeName] -
     sizes.marginSizes[sizeName]}px;
 `;
@@ -28,20 +33,20 @@ const descriptionTextSizesMixin = (sizeName, sizes) => css`
     font-size: ${sizes.descriptionFontSizes[sizeName]}px;
     max-width: ${sizes.toastMaxWidth[sizeName] -
     sizes.paddingSizes[sizeName] * 4 -
+    sizes.titleFontSizes[sizeName] -
     sizes.iconSizes[sizeName] -
     sizes.marginSizes[sizeName]}px;
 `;
 
 const closeButtonSizesMixin = (sizeName, sizes) => css`
     font-size: ${sizes.titleFontSizes[sizeName]}px;
-    top: ${sizes.paddingSizes[sizeName] / 2}px;
-    right: ${sizes.paddingSizes[sizeName] / 2}px;
+    right: ${sizes.paddingSizes[sizeName]}px;
 `;
 
 const ToastWrapper = styled.div`
     position: relative;
-    display: flex;
-    align-items: center;
+    display: grid;
+    place-items: center;
     box-sizing: border-box;
     background-color: ${({ type, theme: { colors } }) =>
         colors[type].background};
@@ -92,6 +97,7 @@ const CloseButton = styled.button`
 `;
 const ToastDataWrapper = styled.div`
     display: flex;
+    justify-self: start;
     flex-direction: column;
 `;
 const ToastTitle = styled.span`
