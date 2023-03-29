@@ -6,10 +6,13 @@ const useToast = () => {
     const ref = useRef(null);
     useImperativeHandle(ref, () => ({
         createNewToast(newToast) {
-            if (toasts.length < 3) {
+            if (
+                toasts.filter((t) => t.position === newToast.position).length <
+                3
+            ) {
                 setToasts((prevState) => [...prevState, newToast]);
                 setTimeout(
-                    () => this.removeToast(newToast.id),
+                    () => this.removeToast(newToast.id, newToast.position),
                     newToast.duration,
                 );
             }

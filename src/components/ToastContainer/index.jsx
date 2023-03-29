@@ -29,7 +29,7 @@ const ToastContainer = () => {
                                 toastTitle={t.title}
                                 toastDescription={t.description}
                                 type={t.type}
-                                onClick={() =>
+                                handleClose={() =>
                                     singleton.getInstance().removeToast(t.id)
                                 }
                             />
