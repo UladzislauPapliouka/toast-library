@@ -6,7 +6,6 @@ const useToast = () => {
     const ref = useRef(null);
     useImperativeHandle(ref, () => ({
         createNewToast(newToast) {
-            console.log(newToast);
             if (toasts.length < 3) {
                 setToasts((prevState) => [...prevState, newToast]);
                 setTimeout(
