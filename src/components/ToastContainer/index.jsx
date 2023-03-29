@@ -4,32 +4,35 @@ import { ToastContainerWrapper, ToastPositionWrapper } from './styled';
 import Toast from '../Toast';
 import useToasts from '../../hooks/useToasts';
 import singleton from '../../constants/singleton';
+import positions from '../../constants/positions';
 
 const ToastContainer = () => {
-    const positions = [
-        'top-left',
-        'top',
-        'top-right',
-        'bottom-left',
-        'bottom',
-        'bottom-right',
-    ];
     const { toasts } = useToasts();
     return ReactDOM.createPortal(
         <ToastContainerWrapper>
-            {positions.map((pos) => (
+            {Object.keys(positions).map((positionName) => (
                 <ToastPositionWrapper
-                    onClick={() => singleton.getInstance().createToast('fd')}
-                    data-cy={pos}
+                    onClick={() =>
+                        singleton.getInstance().createToast({
+                            title: 'rd',
+                            position: positions[positionName],
+                            type: 'success',
+                        })
+                    }
+                    data-cy={positions[positionName]}
                 >
-                    {toasts.map((t) => (
-                        <Toast
-                            toastTitle={t.title}
-                            onClick={() =>
-                                singleton.getInstance().removeToast(t.id)
-                            }
-                        />
-                    ))}
+                    {toasts.map((t) =>
+                        t.position === positions[positionName] ? (
+                            <Toast
+                                toastTitle={t.title}
+                                toastDescription={t.description}
+                                type={t.type}
+                                onClick={() =>
+                                    singleton.getInstance().removeToast(t.id)
+                                }
+                            />
+                        ) : null,
+                    )}
                 </ToastPositionWrapper>
             ))}
         </ToastContainerWrapper>,

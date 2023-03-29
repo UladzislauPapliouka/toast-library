@@ -9,7 +9,7 @@ import ToastWrapper, {
 } from './styled';
 import toastIcons from './config';
 
-function Toast({ type, toastTitle, toastDescription, onClick }) {
+function Toast({ type, toastTitle, toastDescription, handleClose }) {
     return (
         <ToastWrapper type={type}>
             {toastIcons[type]}
@@ -24,7 +24,7 @@ function Toast({ type, toastTitle, toastDescription, onClick }) {
             <CloseButton
                 onClick={(e) => {
                     e.stopPropagation();
-                    onClick();
+                    handleClose();
                 }}
             >
                 <RxCross2 />
@@ -36,9 +36,11 @@ Toast.propTypes = {
     type: PropTypes.oneOf(['info', 'warning', 'error', 'success']),
     toastTitle: PropTypes.string.isRequired,
     toastDescription: PropTypes.string,
+    handleClose: PropTypes.func,
 };
 Toast.defaultProps = {
     type: 'info',
     toastDescription: 'Description',
+    handleClose: () => {},
 };
 export default Toast;

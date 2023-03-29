@@ -6,14 +6,19 @@ const useToast = () => {
     const ref = useRef(null);
     useImperativeHandle(ref, () => ({
         createNewToast(newToast) {
+            console.log(newToast);
             if (toasts.length < 3) {
                 setToasts((prevState) => [...prevState, newToast]);
-                setTimeout(() => this.removeToast(newToast.id), 3000);
+                setTimeout(
+                    () => this.removeToast(newToast.id),
+                    newToast.duration,
+                );
             }
         },
         removeToast: (toastId) => {
-            const newToasts = toasts.filter((toast) => toastId !== toast.id);
-            setToasts(newToasts);
+            setToasts((prevState) =>
+                prevState.filter((toast) => toastId !== toast.id),
+            );
         },
     }));
 

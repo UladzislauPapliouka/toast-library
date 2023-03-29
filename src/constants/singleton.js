@@ -1,3 +1,5 @@
+import { v4 } from 'uuid';
+
 class Singleton {
     getInstance() {
         if (!this.instance) {
@@ -11,8 +13,21 @@ class Singleton {
         this.toastContainer = toastContainer;
     }
 
-    createToast(title) {
-        this.toastContainer?.createNewToast({ title, id: 1 });
+    createToast({
+        title,
+        description = '',
+        position = 'top-left',
+        type = 'info',
+        duration = 3000,
+    }) {
+        this.toastContainer?.createNewToast({
+            title,
+            description,
+            position,
+            type,
+            duration,
+            id: v4(),
+        });
     }
 
     removeToast(toastId) {
