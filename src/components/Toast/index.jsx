@@ -9,7 +9,7 @@ import ToastWrapper, {
 } from './styled';
 import toastIcons from './config';
 
-function Toast({ type, toastTitle, toastDescription }) {
+function Toast({ type, toastTitle, toastDescription, onClick }) {
     return (
         <ToastWrapper type={type}>
             {toastIcons[type]}
@@ -21,7 +21,12 @@ function Toast({ type, toastTitle, toastDescription }) {
                     </ToastDescription>
                 )}
             </ToastDataWrapper>
-            <CloseButton>
+            <CloseButton
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onClick();
+                }}
+            >
                 <RxCross2 />
             </CloseButton>
         </ToastWrapper>

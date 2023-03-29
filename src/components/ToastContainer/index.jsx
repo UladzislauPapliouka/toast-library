@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import * as ReactDOM from 'react-dom';
 import { ToastContainerWrapper, ToastPositionWrapper } from './styled';
 import Toast from '../Toast';
+import useToasts from '../../hooks/useToasts';
+import singleton from '../../constants/singleton';
 
 const ToastContainer = () => {
     const positions = [
@@ -12,18 +14,21 @@ const ToastContainer = () => {
         'bottom',
         'bottom-right',
     ];
-    const [titles, setTitles] = useState(['a', 'a1', 'a2']);
-    useEffect(() => {
-        setTimeout(() => {
-            setTitles(titles.slice(0, 2));
-        }, 3000);
-    }, []);
+    const { toasts } = useToasts();
     return ReactDOM.createPortal(
         <ToastContainerWrapper>
             {positions.map((pos) => (
-                <ToastPositionWrapper data-cy={pos}>
-                    {titles.map((t) => (
-                        <Toast toastTitle={t} />
+                <ToastPositionWrapper
+                    onClick={() => singleton.getInstance().createToast('fd')}
+                    data-cy={pos}
+                >
+                    {toasts.map((t) => (
+                        <Toast
+                            toastTitle={t.title}
+                            onClick={() =>
+                                singleton.getInstance().removeToast(t.id)
+                            }
+                        />
                     ))}
                 </ToastPositionWrapper>
             ))}
