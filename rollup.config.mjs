@@ -28,6 +28,19 @@ export default [{
                     find: "@",
                     replacement: "src",
                 },
+                {
+                    find: "@constants",
+                    replacement: "src/constants",
+                },
+                {
+                    find: "@components",
+                    replacement: "src/components",
+                },
+                {
+                    find: "@hooks",
+                    replacement: "src/hooks",
+                },
+
             ]
         }),
     ],

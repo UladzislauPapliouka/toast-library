@@ -1,5 +1,5 @@
 import { useEffect, useImperativeHandle, useRef, useState } from 'react';
-import Singletone from '../constants/singleton';
+import Singletone from '@constants/singleton';
 
 const useToast = () => {
     const [toasts, setToasts] = useState([]);

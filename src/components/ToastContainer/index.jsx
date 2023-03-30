@@ -1,12 +1,12 @@
 import React from 'react';
 import * as ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
+import Toast from '@components/Toast';
+import useToasts from '@hooks/useToasts';
+import singleton from '@constants/singleton';
+import positions from '@constants/positions';
+import * as sizes from '@constants/sizes';
 import { ToastContainerWrapper, ToastPositionWrapper } from './styled';
-import Toast from '../Toast';
-import useToasts from '../../hooks/useToasts';
-import singleton from '../../constants/singleton';
-import positions from '../../constants/positions';
-import * as sizes from '../../constants/sizes';
 
 const ToastContainer = () => {
     const { toasts } = useToasts();
