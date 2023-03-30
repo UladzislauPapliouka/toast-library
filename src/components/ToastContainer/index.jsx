@@ -27,6 +27,7 @@ const ToastContainer = () => {
                                 title: 'rddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
                                 position: positions[positionName],
                                 type: 'info',
+                                animationName: 'slide',
                                 description:
                                     'dffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff',
                             })

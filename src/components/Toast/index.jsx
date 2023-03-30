@@ -24,6 +24,8 @@ function Toast({
             duration={duration}
             slideDirection={slideDirection}
             animationName={animationName}
+            draggable
+            onDragEnd={handleClose}
         >
             {toastIcons[type]}
             <ToastDataWrapper>
