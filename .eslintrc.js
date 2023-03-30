@@ -6,6 +6,9 @@ module.exports = {
     extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
     overrides: [],
     parserOptions: {
+        ecmaFeatures: {
+            jsx: true,
+        },
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
@@ -14,5 +17,7 @@ module.exports = {
         'prettier/prettier': ['error', { endOfLine: 'auto' }],
         'no-bitwise': 0,
         'react/jsx-props-no-spreading': 0,
+        'import/no-named-as-default': 0,
+        ' import/no-named-as-default-member': 0,
     },
 };

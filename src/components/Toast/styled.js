@@ -1,11 +1,10 @@
 import styled, { css } from 'styled-components';
 
 const sizesMixin = (sizeName, sizes) => css`
-    margin: ${sizes.marginSizes[sizeName] / 2}px;
     gap: ${sizes.marginSizes[sizeName]}px;
     border-radius: ${sizes.borderRadiuses[sizeName]}px;
     padding: ${sizes.paddingSizes[sizeName]}px ${sizes.paddingSizes[sizeName]}px;
-
+    margin: ${sizes.marginSizes[sizeName] / 2}px;
     max-width: ${sizes.toastMaxWidth[sizeName]}px;
     width: fit-content;
     min-width: ${sizes.toastMinWidth[sizeName]}px;
@@ -42,6 +41,77 @@ const closeButtonSizesMixin = (sizeName, sizes) => css`
     font-size: ${sizes.titleFontSizes[sizeName]}px;
     right: ${sizes.paddingSizes[sizeName]}px;
 `;
+const getAnimationPatams = (duration) => css`
+    animation-delay: 0s, ${duration / 1000 - 0.5}s;
+    animation-duration: 0.5s, 0.5s;
+    animation-iteration-count: 1, 1;
+    animation-fill-mode: forwards, forwards;
+`;
+const opacityAnimation = (duration) => css`
+    animation-name: show, hide;
+    ${getAnimationPatams(duration)}
+    @keyframes show {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @keyframes hide {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+            display: none;
+        }
+    }
+`;
+const getSlidePosition = (direction, position) => {
+    switch (direction) {
+        case 'bottom':
+            return css`
+                bottom: ${position}px;
+            `;
+        case 'left':
+            return css`
+                left: ${position}px;
+            `;
+        case 'right':
+            return css`
+                right: ${position}px;
+            `;
+        default:
+            return css`
+                top: ${position}px;
+            `;
+    }
+};
+const slideAnimation = (duration, direction) => css`
+    ${getAnimationPatams(duration)}
+    animation-name: slide-in, slide-out;
+    @keyframes slide-in {
+        from {
+            opacity: 0;
+            ${getSlidePosition(direction, -200)}
+        }
+        to {
+            opacity: 1;
+            ${getSlidePosition(direction, 0)}
+        }
+    }
+    @keyframes slide-out {
+        from {
+            opacity: 1;
+            ${getSlidePosition(direction, 0)}
+        }
+        to {
+            opacity: 0;
+            ${getSlidePosition(direction, -200)}
+        }
+    }
+`;
 
 const ToastWrapper = styled.div`
     position: relative;
@@ -51,7 +121,6 @@ const ToastWrapper = styled.div`
     background-color: ${({ type, theme: { colors } }) =>
         colors[type].background};
     color: ${({ type = 'info', theme: { colors } }) => colors[type].color};
-
     ${({ theme: { sizes } }) => sizesMixin('xxl', sizes)};
     @media screen and (max-width: ${({ theme: { sizes } }) =>
             sizes.displayBreackpoints.xl}px) {
@@ -69,6 +138,14 @@ const ToastWrapper = styled.div`
             sizes.displayBreackpoints.sm}px) {
         ${({ theme: { sizes } }) => sizesMixin('sm', sizes)};
     }
+    ${({ duration, slideDirection, animationName }) => {
+        switch (animationName) {
+            case 'opacity':
+                return opacityAnimation(duration);
+            default:
+                return slideAnimation(duration, slideDirection);
+        }
+    }}
 `;
 const CloseButton = styled.button`
     position: absolute;

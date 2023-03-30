@@ -9,9 +9,22 @@ import ToastWrapper, {
 } from './styled';
 import toastIcons from './config';
 
-function Toast({ type, toastTitle, toastDescription, handleClose }) {
+function Toast({
+    type,
+    toastTitle,
+    toastDescription,
+    handleClose,
+    duration,
+    slideDirection,
+    animationName,
+}) {
     return (
-        <ToastWrapper type={type}>
+        <ToastWrapper
+            type={type}
+            duration={duration}
+            slideDirection={slideDirection}
+            animationName={animationName}
+        >
             {toastIcons[type]}
             <ToastDataWrapper>
                 <ToastTitle>{toastTitle.slice(0, 29)}</ToastTitle>

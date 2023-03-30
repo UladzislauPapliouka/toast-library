@@ -1,5 +1,5 @@
 import { useEffect, useImperativeHandle, useRef, useState } from 'react';
-import singleton from '../constants/singleton';
+import Singletone from '../constants/singleton';
 
 const useToast = () => {
     const [toasts, setToasts] = useState([]);
@@ -25,7 +25,7 @@ const useToast = () => {
     }));
 
     useEffect(() => {
-        singleton.getInstance().setToastContainer(ref.current);
+        Singletone.getInstance().setToastContainer(ref.current);
     }, [toasts]);
 
     return {

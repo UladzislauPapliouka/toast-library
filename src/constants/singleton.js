@@ -1,6 +1,13 @@
 import { v4 } from 'uuid';
+import colorsTheme from './theme';
 
 class Singleton {
+    constructor() {
+        this.toastTheme = colorsTheme;
+
+        this.containerMargin = 10;
+    }
+
     getInstance() {
         if (!this.instance) {
             this.instance = new Singleton();
@@ -11,6 +18,14 @@ class Singleton {
 
     setToastContainer(toastContainer) {
         this.toastContainer = toastContainer;
+    }
+
+    setToastTheme(theme) {
+        this.toastTheme = Object.assign(colorsTheme, theme);
+    }
+
+    setToastContainerMargin(margin) {
+        this.containerMargin = margin;
     }
 
     createToast({
@@ -34,5 +49,4 @@ class Singleton {
         this.toastContainer?.removeToast(toastId);
     }
 }
-
 export default new Singleton();

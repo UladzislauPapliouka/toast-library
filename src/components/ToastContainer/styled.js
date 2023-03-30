@@ -7,6 +7,7 @@ const ToastContainerWrapper = styled.div`
     right: 0;
     bottom: 0;
     display: grid;
+    margin: ${({ theme: { containerMargin } }) => containerMargin}px;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
