@@ -73,19 +73,19 @@ const getSlidePosition = (direction, position) => {
     switch (direction) {
         case 'bottom':
             return css`
-                bottom: ${position}px;
+                transform: translate(0, ${position}px);
             `;
         case 'left':
             return css`
-                left: ${position}px;
+                transform: translate(${-position}px, 0);
             `;
         case 'right':
             return css`
-                right: ${position}px;
+                transform: translate(${position}px, 0);
             `;
         default:
             return css`
-                top: ${position}px;
+                transform: translate(0, ${-position}px);
             `;
     }
 };
@@ -95,7 +95,7 @@ const slideAnimation = (duration, direction) => css`
     @keyframes slide-in {
         from {
             opacity: 0;
-            ${getSlidePosition(direction, -200)}
+            ${getSlidePosition(direction, 200)}
         }
         to {
             opacity: 1;
@@ -109,7 +109,7 @@ const slideAnimation = (duration, direction) => css`
         }
         to {
             opacity: 0;
-            ${getSlidePosition(direction, -200)}
+            ${getSlidePosition(direction, 200)}
         }
     }
 `;
@@ -140,7 +140,7 @@ const ToastWrapper = styled.div`
         ${({ theme: { sizes } }) => sizesMixin('sm', sizes)};
     }
     ${({ duration, slideDirection, animationName }) => {
-        if (!animationName) return '';
+        if (!animationName) return ``;
         switch (animationName) {
             case 'opacity':
                 return opacityAnimation(duration);

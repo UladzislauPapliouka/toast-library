@@ -34,6 +34,8 @@ class Singleton {
         position = 'top-left',
         type = 'info',
         duration = 3000,
+        slideDirection = 'top',
+        animationName,
     }) {
         this.toastContainer?.createNewToast({
             title,
@@ -41,6 +43,8 @@ class Singleton {
             position,
             type,
             duration,
+            slideDirection,
+            animationName,
             id: v4(),
         });
     }

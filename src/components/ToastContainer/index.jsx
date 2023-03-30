@@ -41,6 +41,8 @@ const ToastContainer = () => {
                                     toastDescription={t.description}
                                     type={t.type}
                                     duration={t.duration}
+                                    animationName={t.animationName}
+                                    slideDirection={t.slideDirection}
                                     handleClose={() =>
                                         singleton
                                             .getInstance()
