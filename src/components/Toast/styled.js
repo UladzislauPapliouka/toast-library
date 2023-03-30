@@ -58,6 +58,7 @@ const opacityAnimation = (duration) => css`
             opacity: 1;
         }
     }
+
     @keyframes hide {
         from {
             opacity: 1;
@@ -139,6 +140,7 @@ const ToastWrapper = styled.div`
         ${({ theme: { sizes } }) => sizesMixin('sm', sizes)};
     }
     ${({ duration, slideDirection, animationName }) => {
+        if (!animationName) return '';
         switch (animationName) {
             case 'opacity':
                 return opacityAnimation(duration);
