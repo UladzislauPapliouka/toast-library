@@ -26,6 +26,7 @@ function Toast({
             animationName={animationName}
             draggable
             onDragEnd={handleClose}
+            onClick={(e) => e.stopPropagation()}
         >
             {toastIcons[type]}
             <ToastDataWrapper>
@@ -52,10 +53,16 @@ Toast.propTypes = {
     toastTitle: PropTypes.string.isRequired,
     toastDescription: PropTypes.string,
     handleClose: PropTypes.func,
+    duration: PropTypes.number,
+    slideDirection: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+    animationName: PropTypes.string | undefined,
 };
 Toast.defaultProps = {
     type: 'info',
     toastDescription: 'Description',
     handleClose: () => {},
+    duration: 3000,
+    slideDirection: 'top',
+    animationName: undefined,
 };
 export default Toast;
