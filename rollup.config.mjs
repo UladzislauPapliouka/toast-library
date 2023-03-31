@@ -3,6 +3,8 @@ import resolve from '@rollup/plugin-node-resolve'
 import external from 'rollup-plugin-peer-deps-external'
 import alias from '@rollup/plugin-alias'
 import image from '@rollup/plugin-image'
+import commonjs from '@rollup/plugin-commonjs';
+
 
 export default [{
     input: './src/index.js',
@@ -20,7 +22,10 @@ export default [{
             presets: ['@babel/preset-react']
         }),
         external(),
-        resolve(),
+        resolve({
+            extensions: [ '.js', '.jsx'],
+        }),
+        commonjs(),
         alias({
             resolve: ['.js', '.jsx'],
             entries: [
@@ -44,4 +49,5 @@ export default [{
             ]
         }),
     ],
+    external: ["react", "react-dom"]
 }]

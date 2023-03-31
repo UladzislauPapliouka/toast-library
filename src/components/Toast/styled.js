@@ -225,4 +225,4 @@ const ToastDescription = styled.span`
 `;
 
 export default ToastWrapper;
-export { CloseButton, ToastTitle, ToastDescription, ToastDataWrapper };
+export { CloseButton, ToastDataWrapper, ToastDescription, ToastTitle };

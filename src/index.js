@@ -1,3 +1,4 @@
-import Toast from '@components/Toast';
+import ToastContainer from './components/ToastContainer/index';
+import Singleton from './constants/singleton';
 
-export default Toast;
+export { Singleton, ToastContainer };

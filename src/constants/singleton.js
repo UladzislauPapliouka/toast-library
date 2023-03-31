@@ -1,4 +1,5 @@
 import { v4 } from 'uuid';
+
 import colorsTheme from './theme';
 
 class Singleton {

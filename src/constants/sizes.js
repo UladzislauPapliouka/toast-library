@@ -70,14 +70,14 @@ const displayBreackpoints = {
     xxl: 1400,
 };
 export {
-    paddingSizes,
-    toastMaxWidth,
-    toastMaxHeight,
     borderRadiuses,
+    descriptionFontSizes,
+    displayBreackpoints,
     iconSizes,
     marginSizes,
-    toastMinWidth,
+    paddingSizes,
     titleFontSizes,
-    displayBreackpoints,
-    descriptionFontSizes,
+    toastMaxHeight,
+    toastMaxWidth,
+    toastMinWidth,
 };
