@@ -69,6 +69,7 @@ function Template({
                         duration,
                     })
                 }
+                data-cy="createToast"
             >
                 Create toast
             </Button>

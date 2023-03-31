@@ -28,6 +28,7 @@ function Toast({
             draggable
             onDragEnd={handleClose}
             onClick={(e) => e.stopPropagation()}
+            data-cy={toastTitle}
         >
             {toastIcons[type]}
             <ToastDataWrapper>

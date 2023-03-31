@@ -2,3 +2,5 @@ node_modules
 .idea
 rollup.config.mjs
 dist
+cypress
+cypress.config.js
