@@ -38,7 +38,6 @@ class Singleton {
         slideDirection = 'top',
         animationName,
     }) {
-        console.log('fdsf');
         this.toastContainer?.createNewToast({
             title,
             description,
