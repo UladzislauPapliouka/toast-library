@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const ToastContainerWrapper = styled.div`
     position: absolute;
+    pointer-events: none;
     top: 0;
     left: 0;
     right: 0;

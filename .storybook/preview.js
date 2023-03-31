@@ -3,6 +3,7 @@ import * as sizes from '../src/constants/sizes';
 import colorsTheme from '../src/constants/theme';
 
 export const parameters = {
+    layout: 'centered',
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
         matchers: {

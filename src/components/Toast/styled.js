@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 const sizesMixin = (sizeName, sizes) => css`
     gap: ${sizes.marginSizes[sizeName]}px;
@@ -47,27 +47,25 @@ const getAnimationPatams = (duration) => css`
     animation-iteration-count: 1, 1;
     animation-fill-mode: forwards, forwards;
 `;
+const show = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+const hide = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }`;
 const opacityAnimation = (duration) => css`
-    animation-name: show, hide;
+    animation-name: ${show}, ${hide};
     ${getAnimationPatams(duration)}
-    @keyframes show {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-
-    @keyframes hide {
-        from {
-            opacity: 1;
-        }
-        to {
-            opacity: 0;
-            display: none;
-        }
-    }
 `;
 const getSlidePosition = (direction, position) => {
     switch (direction) {
@@ -89,34 +87,35 @@ const getSlidePosition = (direction, position) => {
             `;
     }
 };
+const slideIn = (direction) => keyframes`
+  from {
+    opacity: 0;
+    ${getSlidePosition(direction, 200)}
+}
+to {
+    opacity: 1;
+    ${getSlidePosition(direction, 0)}
+}
+`;
+const slideOut = (direction) => keyframes`
+    from {
+      opacity: 1;
+      ${getSlidePosition(direction, 0)}
+    }
+    to {
+      opacity: 0;
+      ${getSlidePosition(direction, 200)}
+    }
+`;
 const slideAnimation = (duration, direction) => css`
     ${getAnimationPatams(duration)}
-    animation-name: slide-in, slide-out;
-    @keyframes slide-in {
-        from {
-            opacity: 0;
-            ${getSlidePosition(direction, 200)}
-        }
-        to {
-            opacity: 1;
-            ${getSlidePosition(direction, 0)}
-        }
-    }
-    @keyframes slide-out {
-        from {
-            opacity: 1;
-            ${getSlidePosition(direction, 0)}
-        }
-        to {
-            opacity: 0;
-            ${getSlidePosition(direction, 200)}
-        }
-    }
+    animation-name: ${slideIn(direction)}, ${slideOut(direction)};
 `;
 
 const ToastWrapper = styled.div`
     position: relative;
     display: grid;
+    pointer-events: all;
     place-items: center;
     box-sizing: border-box;
     background-color: ${({ type, theme: { colors } }) =>

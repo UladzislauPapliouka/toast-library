@@ -24,16 +24,6 @@ const ToastContainer = () => {
                 {Object.keys(positions).map((positionName) => (
                     <ToastPositionWrapper
                         key={positionName}
-                        onClick={() =>
-                            singleton.getInstance().createToast({
-                                title: 'rddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-                                position: positions[positionName],
-                                type: 'info',
-                                animationName: 'slide',
-                                description:
-                                    'dffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff',
-                            })
-                        }
                         data-cy={positions[positionName]}
                     >
                         {toasts.map((t) =>
