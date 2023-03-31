@@ -1,14 +1,12 @@
 import babel  from "@rollup/plugin-babel"
-import resolve from '@rollup/plugin-node-resolve'
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external'
 import alias from '@rollup/plugin-alias'
-import image from '@rollup/plugin-image'
 import commonjs from '@rollup/plugin-commonjs';
 
 
 export default [{
     input: './src/index.js',
-    external: ['styled-components'],
     output: [
         {
             file: 'dist/index.es.js',
@@ -16,18 +14,8 @@ export default [{
             exports: 'named',
         }],
     plugins: [
-        image(),
-        babel({
-            exclude: 'node_modules/**',
-            presets: ['@babel/preset-react']
-        }),
-        external(),
-        resolve({
-            extensions: [ '.js', '.jsx'],
-        }),
-        commonjs(),
+        nodeResolve(),
         alias({
-            resolve: ['.js', '.jsx'],
             entries: [
                 {
                     find: "@",
@@ -48,6 +36,12 @@ export default [{
 
             ]
         }),
+        external(),
+        commonjs(),
+        babel({
+            exclude: 'node_modules/**',
+            presets: ['@babel/preset-react']
+        }),
     ],
-    external: ["react", "react-dom"]
+    external: ["react", "react-dom",'styled-components']
 }]

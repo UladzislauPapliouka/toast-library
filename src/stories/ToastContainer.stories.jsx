@@ -3,7 +3,7 @@ import React from 'react';
 import ToastContainer from '@components/ToastContainer';
 
 import Button from '../components/Button/Button';
-import singleton from '../constants/singleton';
+import Singleton from '../constants/singleton';
 
 export default {
     title: 'Example/ToastContainer',
@@ -59,7 +59,7 @@ function Template({
             <ToastContainer />
             <Button
                 onClick={() =>
-                    singleton.getInstance().createToast({
+                    Singleton.getInstance().createToast({
                         title: toastTitle,
                         position: toastPosition,
                         type,
