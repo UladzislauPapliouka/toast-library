@@ -1,9 +1,9 @@
 const paddingSizes = {
-    sm: 15,
-    md: 15,
-    lg: 15,
-    xl: 20,
-    xxl: 20,
+    sm: 8,
+    md: 8,
+    lg: 16,
+    xl: 16,
+    xxl: 16,
 };
 const toastMinWidth = {
     sm: 260,
@@ -16,8 +16,8 @@ const toastMaxWidth = {
     sm: 300,
     md: 300,
     lg: 400,
-    xl: 540,
-    xxl: 760,
+    xl: 500,
+    xxl: 500,
 };
 const toastMaxHeight = {
     sm: 100,
@@ -34,32 +34,32 @@ const borderRadiuses = {
     xxl: 20,
 };
 const iconSizes = {
-    sm: 20,
-    md: 20,
+    sm: 14,
+    md: 14,
     lg: 20,
-    xl: 30,
-    xxl: 30,
+    xl: 20,
+    xxl: 20,
 };
 const marginSizes = {
     sm: 10,
-    md: 15,
-    lg: 20,
-    xl: 20,
-    xxl: 20,
+    md: 10,
+    lg: 16,
+    xl: 16,
+    xxl: 16,
 };
 const titleFontSizes = {
-    sm: 20,
-    md: 20,
+    sm: 14,
+    md: 14,
     lg: 20,
-    xl: 30,
-    xxl: 30,
-};
-const descriptionFontSizes = {
-    sm: 15,
-    md: 15,
-    lg: 15,
     xl: 20,
     xxl: 20,
+};
+const descriptionFontSizes = {
+    sm: 10,
+    md: 10,
+    lg: 16,
+    xl: 16,
+    xxl: 16,
 };
 const displayBreackpoints = {
     xs: 0,

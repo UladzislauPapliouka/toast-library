@@ -8,6 +8,7 @@ const ToastContainerWrapper = styled.div`
     right: 0;
     bottom: 0;
     display: grid;
+    overflow: hidden;
     margin: ${({ theme: { containerMargin } }) => containerMargin}px;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
@@ -32,9 +33,19 @@ const ToastPositionWrapper = styled.div`
     }
     &[data-cy='bottom-left'] {
         grid-area: bl;
+        @media screen and (max-width: ${({ theme: { sizes } }) =>
+                sizes.displayBreackpoints.md}px) {
+            grid-area: br;
+            align-items: center;
+        }
     }
     &[data-cy='top-left'] {
         grid-area: tl;
+        @media screen and (max-width: ${({ theme: { sizes } }) =>
+                sizes.displayBreackpoints.md}px) {
+            grid-area: tr;
+            align-items: center;
+        }
     }
     &[data-cy='top-right'],
     &[data-cy='bottom-right'] {
