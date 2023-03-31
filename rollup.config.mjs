@@ -3,6 +3,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external'
 import alias from '@rollup/plugin-alias'
 import commonjs from '@rollup/plugin-commonjs';
+import terser from '@rollup/plugin-terser';
 
 
 export default [{
@@ -42,6 +43,9 @@ export default [{
             exclude: 'node_modules/**',
             presets: ['@babel/preset-react']
         }),
+      terser({
+          maxWorkers: 6
+      })
     ],
     external: ["react", "react-dom",'styled-components']
 }]
