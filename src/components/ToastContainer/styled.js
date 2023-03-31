@@ -21,7 +21,6 @@ const ToastContainerWrapper = styled.div`
     }
 `;
 const ToastPositionWrapper = styled.div`
-    background-color: red;
     display: flex;
     flex-direction: column;
     &[data-cy='top-right'] {
