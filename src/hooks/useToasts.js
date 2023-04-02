@@ -24,7 +24,7 @@ const useToast = () => {
   );
 
   useLayoutEffect(() => {
-    Singletone.getInstance().setToastContainer(ref.current);
+    Singletone.setToastContainer(ref.current);
   }, [toasts]);
 
   return {

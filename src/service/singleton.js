@@ -41,6 +41,7 @@ class Singleton {
     color,
     margin,
   }) {
+    console.log(this.toastContainer);
     this.toastContainer?.createNewToast({
       title,
       description,
@@ -59,4 +60,4 @@ class Singleton {
     this.toastContainer?.removeToast(toastId);
   }
 }
-export default new Singleton();
+export default new Singleton().getInstance();

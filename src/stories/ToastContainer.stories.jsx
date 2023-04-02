@@ -63,7 +63,7 @@ function Template({
   margin,
 }) {
   const createToast = () =>
-    Singleton.getInstance().createToast({
+    Singleton.createToast({
       title: toastTitle,
       position: toastPosition,
       type,
