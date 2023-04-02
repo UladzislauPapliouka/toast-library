@@ -28,8 +28,10 @@ const ToastContainer = () => {
               key={positionName}
               data-cy={positions[positionName]}
             >
-              {toasts.map((t) =>
-                t.position === positions[positionName] ? (
+              {toasts.map((t) => {
+                const handleClose = () =>
+                  singleton.getInstance().removeToast(t.id);
+                return t.position === positions[positionName] ? (
                   <Toast
                     key={t.id}
                     toastTitle={t.title}
@@ -38,12 +40,10 @@ const ToastContainer = () => {
                     duration={t.duration}
                     animationName={t.animationName}
                     slideDirection={t.slideDirection}
-                    handleClose={() =>
-                      singleton.getInstance().removeToast(t.id)
-                    }
+                    handleClose={handleClose}
                   />
-                ) : null,
-              )}
+                ) : null;
+              })}
             </ToastPositionWrapper>
           ))}
         </ToastContainerWrapper>

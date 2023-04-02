@@ -54,23 +54,20 @@ function Template({
   duration,
   ...args
 }) {
+  const createToast = () =>
+    Singleton.getInstance().createToast({
+      title: toastTitle,
+      position: toastPosition,
+      type,
+      animationName,
+      description: toastDescription,
+      slideDirection,
+      duration,
+    });
   return (
     <div>
       <ToastContainer />
-      <Button
-        onClick={() =>
-          Singleton.getInstance().createToast({
-            title: toastTitle,
-            position: toastPosition,
-            type,
-            animationName,
-            description: toastDescription,
-            slideDirection,
-            duration,
-          })
-        }
-        data-cy="createToast"
-      >
+      <Button onClick={createToast} data-cy="createToast">
         Create toast
       </Button>
     </div>

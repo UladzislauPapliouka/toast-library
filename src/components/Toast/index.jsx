@@ -28,7 +28,6 @@ function Toast({
       animationName={animationName}
       draggable
       onDragEnd={handleClose}
-      onClick={(e) => e.stopPropagation()}
       data-cy={toastTitle}
     >
       {toastIcons[type]}
@@ -38,12 +37,7 @@ function Toast({
           <ToastDescription>{toastDescription.slice(0, 89)}</ToastDescription>
         )}
       </ToastDataWrapper>
-      <CloseButton
-        onClick={(e) => {
-          e.stopPropagation();
-          handleClose();
-        }}
-      >
+      <CloseButton onClick={handleClose}>
         <RxCross2 />
       </CloseButton>
     </ToastWrapper>
