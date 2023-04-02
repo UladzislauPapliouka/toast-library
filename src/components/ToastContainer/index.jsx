@@ -3,7 +3,6 @@ import * as ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
 
 import ErrorBoundary from '@components/ErrorBoudaries/index.jsx';
-import Toast from '@components/Toast/index.jsx';
 import positions from '@constants/positions.js';
 import singleton from '@constants/singleton.js';
 import * as sizes from '@constants/sizes.js';

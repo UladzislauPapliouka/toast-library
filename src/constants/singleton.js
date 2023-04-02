@@ -32,7 +32,7 @@ class Singleton {
 
   createToast({
     title,
-    description = '',
+    description,
     position = positions.topLeft,
     type = 'info',
     duration = 3000,

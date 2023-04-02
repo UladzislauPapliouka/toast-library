@@ -44,20 +44,13 @@ function Toast({
   );
 }
 Toast.propTypes = {
-  type: PropTypes.oneOf(['info', 'warning', 'error', 'success']),
+  type: PropTypes.oneOf(['info', 'warning', 'error', 'success']).isRequired,
   toastTitle: PropTypes.string.isRequired,
-  toastDescription: PropTypes.string,
-  handleClose: PropTypes.func,
-  duration: PropTypes.number,
-  slideDirection: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
-  animationName: PropTypes.string | undefined,
-};
-Toast.defaultProps = {
-  type: 'info',
-  toastDescription: 'Description',
-  handleClose: () => {},
-  duration: 3000,
-  slideDirection: 'top',
-  animationName: undefined,
+  toastDescription: PropTypes.string.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  duration: PropTypes.number.isRequired,
+  slideDirection: PropTypes.oneOf(['top', 'bottom', 'left', 'right'])
+    .isRequired,
+  animationName: PropTypes.string.isRequired,
 };
 export default Toast;
