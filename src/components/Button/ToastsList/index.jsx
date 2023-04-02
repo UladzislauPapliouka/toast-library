@@ -8,21 +8,34 @@ import Toast from '../../Toast';
 function ToastsList({ toasts, positionName }) {
   return (
     <>
-      {toasts.map((t) => {
-        const handleClose = () => singleton.getInstance().removeToast(t.id);
-        return t.position === positions[positionName] ? (
-          <Toast
-            key={t.id}
-            toastTitle={t.title}
-            toastDescription={t.description}
-            type={t.type}
-            duration={t.duration}
-            animationName={t.animationName}
-            slideDirection={t.slideDirection}
-            handleClose={handleClose}
-          />
-        ) : null;
-      })}
+      {toasts.map(
+        ({
+          id,
+          title,
+          description,
+          type,
+          duration,
+          animationName,
+          slideDirection,
+          position,
+        }) => {
+          const handleClose = () => singleton.getInstance().removeToast(id);
+          return (
+            position === positions[positionName] && (
+              <Toast
+                key={id}
+                toastTitle={title}
+                toastDescription={description}
+                type={type}
+                duration={duration}
+                animationName={animationName}
+                slideDirection={slideDirection}
+                handleClose={handleClose}
+              />
+            )
+          );
+        },
+      )}
     </>
   );
 }
