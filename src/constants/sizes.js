@@ -5,14 +5,7 @@ export const paddingSizes = {
   xl: 16,
   xxl: 16,
 };
-export const toastMinWidth = {
-  sm: 260,
-  md: 260,
-  lg: 300,
-  xl: 350,
-  xxl: 350,
-};
-export const toastMaxWidth = {
+export const toastWidth = {
   sm: 300,
   md: 300,
   lg: 400,
@@ -70,9 +63,9 @@ export const displayBreackpoints = {
   xxl: 1400,
 };
 export const textMaxWidth = {
-  sm: 200,
-  md: 200,
-  lg: 300,
-  xl: 300,
-  xxl: 300,
+  sm: 240,
+  md: 240,
+  lg: 380,
+  xl: 380,
+  xxl: 380,
 };

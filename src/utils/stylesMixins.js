@@ -5,9 +5,7 @@ export const sizesMixin = (sizeName, sizes, margin) => css`
   border-radius: ${sizes.borderRadiuses[sizeName]}px;
   padding: ${sizes.paddingSizes[sizeName]}px ${sizes.paddingSizes[sizeName]}px;
   margin: ${margin || `${sizes.marginSizes[sizeName] / 2}px`};
-  max-width: ${sizes.toastMaxWidth[sizeName]}px;
-  width: fit-content;
-  min-width: ${sizes.toastMinWidth[sizeName]}px;
+  width: ${sizes.toastWidth[sizeName]}px;
 
   max-height: ${sizes.toastMaxHeight[sizeName]}px;
   grid-template-columns:
