@@ -1,4 +1,4 @@
-import { useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { useImperativeHandle, useLayoutEffect, useRef, useState } from 'react';
 
 import Singletone from '@constants/singleton.js';
 
@@ -22,9 +22,9 @@ const useToast = () => {
     },
   }));
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     Singletone.getInstance().setToastContainer(ref.current);
-  }, [toasts]);
+  }, []);
 
   return {
     toasts,
