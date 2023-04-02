@@ -9,6 +9,8 @@ import singleton from '@constants/singleton.js';
 import * as sizes from '@constants/sizes.js';
 import useToasts from '@hooks/useToasts.js';
 
+import ToastsList from '../Button/ToastsList';
+
 import { ToastContainerWrapper, ToastPositionWrapper } from './styled';
 
 const ToastContainer = () => {
@@ -28,22 +30,7 @@ const ToastContainer = () => {
               key={positionName}
               data-cy={positions[positionName]}
             >
-              {toasts.map((t) => {
-                const handleClose = () =>
-                  singleton.getInstance().removeToast(t.id);
-                return t.position === positions[positionName] ? (
-                  <Toast
-                    key={t.id}
-                    toastTitle={t.title}
-                    toastDescription={t.description}
-                    type={t.type}
-                    duration={t.duration}
-                    animationName={t.animationName}
-                    slideDirection={t.slideDirection}
-                    handleClose={handleClose}
-                  />
-                ) : null;
-              })}
+              <ToastsList toasts={toasts} positionName={positionName} />
             </ToastPositionWrapper>
           ))}
         </ToastContainerWrapper>

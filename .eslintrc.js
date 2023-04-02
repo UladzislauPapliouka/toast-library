@@ -20,6 +20,7 @@ module.exports = {
     'import/no-named-as-default': 0,
     'import/no-named-as-default-member': 0,
     'import/extensions': 0,
+    'react/forbid-prop-types': 0,
     'simple-import-sort/imports': [
       'error',
       {
