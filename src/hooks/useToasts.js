@@ -5,26 +5,30 @@ import Singletone from '@constants/singleton.js';
 const useToast = () => {
   const [toasts, setToasts] = useState([]);
   const ref = useRef(null);
-  useImperativeHandle(ref, () => ({
-    createNewToast(newToast) {
-      if (toasts.filter((t) => t.position === newToast.position).length < 3) {
-        setToasts((prevState) => [...prevState, newToast]);
-        setTimeout(
-          () => this.removeToast(newToast.id, newToast.position),
-          newToast.duration,
+  useImperativeHandle(
+    ref,
+    () => ({
+      createNewToast(newToast) {
+        if (toasts.length < 3) {
+          setToasts((prevState) => [...prevState, newToast]);
+          setTimeout(
+            () => this.removeToast(newToast.id, newToast.position),
+            newToast.duration,
+          );
+        }
+      },
+      removeToast: (toastId) => {
+        setToasts((prevState) =>
+          prevState.filter((toast) => toastId !== toast.id),
         );
-      }
-    },
-    removeToast: (toastId) => {
-      setToasts((prevState) =>
-        prevState.filter((toast) => toastId !== toast.id),
-      );
-    },
-  }));
+      },
+    }),
+    [toasts],
+  );
 
   useLayoutEffect(() => {
     Singletone.getInstance().setToastContainer(ref.current);
-  }, []);
+  }, [toasts]);
 
   return {
     toasts,
