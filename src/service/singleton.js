@@ -41,7 +41,6 @@ class Singleton {
     color,
     margin,
   }) {
-    console.log(this.toastContainer);
     this.toastContainer?.createNewToast({
       title,
       description,
