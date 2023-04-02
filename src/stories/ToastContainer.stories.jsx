@@ -3,7 +3,7 @@ import React from 'react';
 import ToastContainer from '@components/ToastContainer';
 
 import Button from '../components/Button/Button';
-import Singleton from '../constants/singleton';
+import Singleton from '../service/singleton';
 
 export default {
   title: 'Example/ToastContainer',

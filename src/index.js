@@ -1,4 +1,4 @@
 import ToastContainer from '@components/ToastContainer/index.jsx';
-import Singleton from '@constants/singleton.js';
+import Singleton from '@service/singleton.js';
 
 export { Singleton, ToastContainer };

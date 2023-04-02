@@ -34,6 +34,14 @@ export default [{
                     find: "@hooks",
                     replacement: "src/hooks",
                 },
+                {
+                    find: "@utils",
+                    replacement: "src/utils",
+                },
+                {
+                    find: "@service",
+                    replacement: "src/service",
+                },
 
             ]
         }),

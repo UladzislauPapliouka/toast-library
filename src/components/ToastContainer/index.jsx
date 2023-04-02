@@ -3,12 +3,11 @@ import * as ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
 
 import ErrorBoundary from '@components/ErrorBoudaries/index.jsx';
+import ToastsList from '@components/ToastsList/index.jsx';
 import positions from '@constants/positions.js';
-import singleton from '@constants/singleton.js';
 import * as sizes from '@constants/sizes.js';
 import useToasts from '@hooks/useToasts.js';
-
-import ToastsList from '../Button/ToastsList';
+import singleton from '@service/singleton.js';
 
 import { ToastContainerWrapper, ToastPositionWrapper } from './styled';
 

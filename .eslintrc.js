@@ -44,6 +44,8 @@ module.exports = {
           ['@constants', './src/constants'],
           ['@components', './src/components'],
           ['@hooks', './src/hooks'],
+          ['@utils', './src/utils'],
+          ['@service', './src/service'],
         ],
         extensions: ['.js', '.jsx', '.json'],
       },
