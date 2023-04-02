@@ -59,4 +59,4 @@ class Singleton {
     this.toastContainer?.removeToast(toastId);
   }
 }
-export default new Singleton().getInstance();
+export default new Singleton();

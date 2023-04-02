@@ -2,8 +2,8 @@ import ToastContainer from '@components/ToastContainer/index.jsx';
 import Singleton from '@service/singleton.js';
 
 const ToastWorker = {
-  createToast: Singleton.createToast,
-  setToastTheme: Singleton.setToastTheme,
-  setToastContainerMargin: Singleton.setToastContainerMargin,
+  createToast: Singleton.createToast.bind(Singleton),
+  setToastTheme: Singleton.setToastTheme.bind(Singleton),
+  setToastContainerMargin: Singleton.setToastContainerMargin.bind(Singleton),
 };
 export { ToastContainer, ToastWorker };
