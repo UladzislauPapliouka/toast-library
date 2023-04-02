@@ -32,9 +32,9 @@ function Toast({
     >
       {toastIcons[type]}
       <ToastDataWrapper>
-        <ToastTitle>{toastTitle.slice(0, 29)}</ToastTitle>
+        <ToastTitle>{toastTitle}</ToastTitle>
         {toastDescription && (
-          <ToastDescription>{toastDescription.slice(0, 89)}</ToastDescription>
+          <ToastDescription>{toastDescription}</ToastDescription>
         )}
       </ToastDataWrapper>
       <CloseButton onClick={handleClose}>
