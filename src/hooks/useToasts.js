@@ -11,10 +11,7 @@ const useToast = () => {
       createNewToast(newToast) {
         if (toasts.length < 3) {
           setToasts((prevState) => [...prevState, newToast]);
-          setTimeout(
-            () => this.removeToast(newToast.id, newToast.position),
-            newToast.duration,
-          );
+          setTimeout(() => this.removeToast(newToast.id), newToast.duration);
         }
       },
       removeToast: (toastId) => {

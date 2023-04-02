@@ -1,10 +1,10 @@
 import { css } from 'styled-components';
 
-export const sizesMixin = (sizeName, sizes) => css`
+export const sizesMixin = (sizeName, sizes, margin) => css`
   gap: ${sizes.marginSizes[sizeName]}px;
   border-radius: ${sizes.borderRadiuses[sizeName]}px;
   padding: ${sizes.paddingSizes[sizeName]}px ${sizes.paddingSizes[sizeName]}px;
-  margin: ${sizes.marginSizes[sizeName] / 2}px;
+  margin: ${margin || `${sizes.marginSizes[sizeName] / 2}px`};
   max-width: ${sizes.toastMaxWidth[sizeName]}px;
   width: fit-content;
   min-width: ${sizes.toastMinWidth[sizeName]}px;

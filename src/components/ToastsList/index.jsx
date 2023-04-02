@@ -18,6 +18,8 @@ function ToastsList({ toasts, positionName }) {
           animationName,
           slideDirection,
           position,
+          margin,
+          color,
         }) => {
           const handleClose = () => singleton.getInstance().removeToast(id);
           return (
@@ -31,6 +33,8 @@ function ToastsList({ toasts, positionName }) {
                 animationName={animationName}
                 slideDirection={slideDirection}
                 handleClose={handleClose}
+                margin={margin}
+                color={color}
               />
             )
           );

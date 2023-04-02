@@ -41,6 +41,13 @@ export default {
       defaultValue: 3000,
       control: { type: 'number' },
     },
+    color: {
+      control: { type: 'color' },
+    },
+    margin: {
+      defaultValue: undefined,
+      control: { type: 'text' },
+    },
   },
 };
 
@@ -52,7 +59,8 @@ function Template({
   toastPosition,
   slideDirection,
   duration,
-  ...args
+  color,
+  margin,
 }) {
   const createToast = () =>
     Singleton.getInstance().createToast({
@@ -63,6 +71,8 @@ function Template({
       description: toastDescription,
       slideDirection,
       duration,
+      color,
+      margin,
     });
   return (
     <div>

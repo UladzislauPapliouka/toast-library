@@ -64,24 +64,26 @@ export const ToastWrapper = styled.div`
   pointer-events: all;
   place-items: center;
   box-sizing: border-box;
-  background-color: ${({ type, theme: { colors } }) => colors[type].background};
+  margin: ${({ margin }) => margin};
+  background-color: ${({ type, theme: { colors }, color }) =>
+    color || colors[type].background};
   color: ${({ type = 'info', theme: { colors } }) => colors[type].color};
-  ${({ theme: { sizes } }) => sizesMixin('xxl', sizes)};
+  ${({ theme: { sizes }, margin }) => sizesMixin('xxl', sizes, margin)};
   @media screen and (max-width: ${({ theme: { sizes } }) =>
       sizes.displayBreackpoints.xl}px) {
-    ${({ theme: { sizes } }) => sizesMixin('xl', sizes)};
+    ${({ theme: { sizes }, margin }) => sizesMixin('xl', sizes, margin)};
   }
   @media screen and (max-width: ${({ theme: { sizes } }) =>
       sizes.displayBreackpoints.lg}px) {
-    ${({ theme: { sizes } }) => sizesMixin('lg', sizes)};
+    ${({ theme: { sizes }, margin }) => sizesMixin('lg', sizes, margin)};
   }
   @media screen and (max-width: ${({ theme: { sizes } }) =>
       sizes.displayBreackpoints.md}px) {
-    ${({ theme: { sizes } }) => sizesMixin('md', sizes)};
+    ${({ theme: { sizes }, margin }) => sizesMixin('md', sizes, margin)};
   }
   @media screen and (max-width: ${({ theme: { sizes } }) =>
       sizes.displayBreackpoints.sm}px) {
-    ${({ theme: { sizes } }) => sizesMixin('sm', sizes)};
+    ${({ theme: { sizes }, margin }) => sizesMixin('sm', sizes, margin)};
   }
   ${({ duration, slideDirection, animationName }) => {
     if (!animationName) return ``;

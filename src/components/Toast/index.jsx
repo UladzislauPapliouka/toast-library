@@ -19,6 +19,8 @@ function Toast({
   duration,
   slideDirection,
   animationName,
+  color,
+  margin,
 }) {
   return (
     <ToastWrapper
@@ -29,6 +31,8 @@ function Toast({
       draggable
       onDragEnd={handleClose}
       data-cy={toastTitle}
+      color={color}
+      margin={margin}
     >
       {toastIcons[type]}
       <ToastDataWrapper>
@@ -52,5 +56,11 @@ Toast.propTypes = {
   slideDirection: PropTypes.oneOf(['top', 'bottom', 'left', 'right'])
     .isRequired,
   animationName: PropTypes.string.isRequired,
+  color: PropTypes.string | undefined,
+  margin: PropTypes.string | undefined,
+};
+Toast.defaultProps = {
+  color: undefined,
+  margin: undefined,
 };
 export default Toast;
