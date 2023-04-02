@@ -49,7 +49,7 @@ const ToastContainer = () => {
         </ToastContainerWrapper>
       </ThemeProvider>
     </ErrorBoundary>,
-    document.getElementsByTagName('body')[0],
+    document.body,
   );
 };
 export default ToastContainer;
