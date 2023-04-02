@@ -22,19 +22,11 @@ const sizesMixin = (sizeName, sizes) => css`
 `;
 const titleTextSizesMixin = (sizeName, sizes) => css`
   font-size: ${sizes.titleFontSizes[sizeName]}px;
-  max-width: ${sizes.toastMaxWidth[sizeName] -
-  sizes.paddingSizes[sizeName] * 2 -
-  sizes.titleFontSizes[sizeName] * 2 -
-  sizes.iconSizes[sizeName] -
-  sizes.marginSizes[sizeName]}px;
+  max-width: ${sizes.textMaxWidth[sizeName]}px;
 `;
 const descriptionTextSizesMixin = (sizeName, sizes) => css`
   font-size: ${sizes.descriptionFontSizes[sizeName]}px;
-  max-width: ${sizes.toastMaxWidth[sizeName] -
-  sizes.paddingSizes[sizeName] * 4 -
-  sizes.titleFontSizes[sizeName] -
-  sizes.iconSizes[sizeName] -
-  sizes.marginSizes[sizeName]}px;
+  max-width: ${sizes.textMaxWidth[sizeName]}px;
 `;
 
 const closeButtonSizesMixin = (sizeName, sizes) => css`

@@ -69,6 +69,13 @@ const displayBreackpoints = {
   xl: 1200,
   xxl: 1400,
 };
+const textMaxWidth = {
+  sm: 200,
+  md: 200,
+  lg: 300,
+  xl: 300,
+  xxl: 300,
+};
 export {
   borderRadiuses,
   descriptionFontSizes,
@@ -76,6 +83,7 @@ export {
   iconSizes,
   marginSizes,
   paddingSizes,
+  textMaxWidth,
   titleFontSizes,
   toastMaxHeight,
   toastMaxWidth,
