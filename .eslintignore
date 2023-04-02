@@ -4,3 +4,4 @@ rollup.config.mjs
 dist
 cypress
 cypress.config.js
+storybook-static
