@@ -27,13 +27,13 @@ export const ToastContainerWrapper = styled.div`
 export const ToastPositionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  &[data-cy='top-right'] {
+  &[data-position='top-right'] {
     grid-area: tr;
   }
-  &[data-cy='bottom-right'] {
+  &[data-position='bottom-right'] {
     grid-area: br;
   }
-  &[data-cy='bottom-left'] {
+  &[data-position='bottom-left'] {
     grid-area: bl;
     @media screen and (max-width: ${({ theme: { sizes } }) =>
         sizes.displayBreackpoints.md}px) {
@@ -41,7 +41,7 @@ export const ToastPositionWrapper = styled.div`
       align-items: center;
     }
   }
-  &[data-cy='top-left'] {
+  &[data-position='top-left'] {
     grid-area: tl;
     @media screen and (max-width: ${({ theme: { sizes } }) =>
         sizes.displayBreackpoints.md}px) {
@@ -49,16 +49,16 @@ export const ToastPositionWrapper = styled.div`
       align-items: center;
     }
   }
-  &[data-cy='top-right'],
-  &[data-cy='bottom-right'] {
+  &[data-position='top-right'],
+  &[data-position='bottom-right'] {
     align-items: flex-end;
     @media screen and (max-width: ${({ theme: { sizes } }) =>
         sizes.displayBreackpoints.md}px) {
       align-items: center;
     }
   }
-  &[data-cy='bottom-left'],
-  &[data-cy='bottom-right'] {
+  &[data-position='bottom-left'],
+  &[data-position='bottom-right'] {
     flex-direction: column-reverse;
   }
 `;
