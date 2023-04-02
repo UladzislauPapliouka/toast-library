@@ -1,44 +1,14 @@
 import styled, { css, keyframes } from 'styled-components';
 
-const sizesMixin = (sizeName, sizes) => css`
-  gap: ${sizes.marginSizes[sizeName]}px;
-  border-radius: ${sizes.borderRadiuses[sizeName]}px;
-  padding: ${sizes.paddingSizes[sizeName]}px ${sizes.paddingSizes[sizeName]}px;
-  margin: ${sizes.marginSizes[sizeName] / 2}px;
-  max-width: ${sizes.toastMaxWidth[sizeName]}px;
-  width: fit-content;
-  min-width: ${sizes.toastMinWidth[sizeName]}px;
+import {
+  animationParamsMixin,
+  closeButtonSizesMixin,
+  descriptionTextSizesMixin,
+  sizesMixin,
+  slidePositionMixin,
+  titleTextSizesMixin,
+} from '../../utils/stylesMixins';
 
-  max-height: ${sizes.toastMaxHeight[sizeName]}px;
-  grid-template-columns:
-    ${sizes.iconSizes[sizeName]}px
-    1fr
-    ${sizes.titleFontSizes[sizeName]}px;
-  & > svg {
-    font-size: ${sizes.iconSizes[sizeName]}px;
-    min-width: ${sizes.iconSizes[sizeName]}px;
-    flex-grow: 1;
-  }
-`;
-const titleTextSizesMixin = (sizeName, sizes) => css`
-  font-size: ${sizes.titleFontSizes[sizeName]}px;
-  max-width: ${sizes.textMaxWidth[sizeName]}px;
-`;
-const descriptionTextSizesMixin = (sizeName, sizes) => css`
-  font-size: ${sizes.descriptionFontSizes[sizeName]}px;
-  max-width: ${sizes.textMaxWidth[sizeName]}px;
-`;
-
-const closeButtonSizesMixin = (sizeName, sizes) => css`
-  font-size: ${sizes.titleFontSizes[sizeName]}px;
-  right: ${sizes.paddingSizes[sizeName]}px;
-`;
-const getAnimationParams = (duration) => css`
-  animation-delay: 0s, ${duration / 1000 - 0.5}s;
-  animation-duration: 0.5s, 0.5s;
-  animation-iteration-count: 1, 1;
-  animation-fill-mode: forwards, forwards;
-`;
 const show = keyframes`
   from {
     opacity: 0;
@@ -47,6 +17,7 @@ const show = keyframes`
     opacity: 1;
   }
 `;
+
 const hide = keyframes`
   from {
     opacity: 1;
@@ -55,52 +26,35 @@ const hide = keyframes`
     opacity: 0;
     display: none;
   }`;
-const opacityAnimation = (duration) => css`
-  animation-name: ${show}, ${hide};
-  ${getAnimationParams(duration)}
-`;
-const getSlidePosition = (direction, position) => {
-  switch (direction) {
-    case 'bottom':
-      return css`
-        transform: translate(0, ${position}px);
-      `;
-    case 'left':
-      return css`
-        transform: translate(${-position}px, 0);
-      `;
-    case 'right':
-      return css`
-        transform: translate(${position}px, 0);
-      `;
-    default:
-      return css`
-        transform: translate(0, ${-position}px);
-      `;
-  }
-};
+
 const slideIn = (direction) => keyframes`
   from {
     opacity: 0;
-    ${getSlidePosition(direction, 200)}
+    ${slidePositionMixin(direction, 200)}
 }
 to {
     opacity: 1;
-    ${getSlidePosition(direction, 0)}
+    ${slidePositionMixin(direction, 0)}
 }
 `;
 const slideOut = (direction) => keyframes`
     from {
       opacity: 1;
-      ${getSlidePosition(direction, 0)}
+      ${slidePositionMixin(direction, 0)}
     }
     to {
       opacity: 0;
-      ${getSlidePosition(direction, 200)}
+      ${slidePositionMixin(direction, 200)}
     }
 `;
+
+const opacityAnimation = (duration) => css`
+  animation-name: ${show}, ${hide};
+  ${animationParamsMixin(duration)}
+`;
+
 const slideAnimation = (duration, direction) => css`
-  ${getAnimationParams(duration)}
+  ${animationParamsMixin(duration)}
   animation-name: ${slideIn(direction)}, ${slideOut(direction)};
 `;
 
