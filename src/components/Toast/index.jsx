@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { RxCross2 } from 'react-icons/rx';
 
 import toastIcons from './config.jsx';
-import ToastWrapper, {
+import {
   CloseButton,
   ToastDataWrapper,
   ToastDescription,
   ToastTitle,
+  ToastWrapper,
 } from './styled';
 
 function Toast({

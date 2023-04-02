@@ -104,7 +104,7 @@ const slideAnimation = (duration, direction) => css`
   animation-name: ${slideIn(direction)}, ${slideOut(direction)};
 `;
 
-const ToastWrapper = styled.div`
+export const ToastWrapper = styled.div`
   position: relative;
   display: grid;
   pointer-events: all;
@@ -139,7 +139,7 @@ const ToastWrapper = styled.div`
     }
   }}
 `;
-const CloseButton = styled.button`
+export const CloseButton = styled.button`
   position: absolute;
   padding: 0;
   color: inherit;
@@ -164,12 +164,12 @@ const CloseButton = styled.button`
     ${({ theme: { sizes } }) => closeButtonSizesMixin('sm', sizes)};
   }
 `;
-const ToastDataWrapper = styled.div`
+export const ToastDataWrapper = styled.div`
   display: flex;
   justify-self: start;
   flex-direction: column;
 `;
-const ToastTitle = styled.span`
+export const ToastTitle = styled.span`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -191,7 +191,7 @@ const ToastTitle = styled.span`
     ${({ theme: { sizes } }) => titleTextSizesMixin('sm', sizes)};
   }
 `;
-const ToastDescription = styled.span`
+export const ToastDescription = styled.span`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -213,6 +213,3 @@ const ToastDescription = styled.span`
     ${({ theme: { sizes } }) => descriptionTextSizesMixin('sm', sizes)};
   }
 `;
-
-export default ToastWrapper;
-export { CloseButton, ToastDataWrapper, ToastDescription, ToastTitle };

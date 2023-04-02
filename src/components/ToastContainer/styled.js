@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ToastContainerWrapper = styled.div`
+export const ToastContainerWrapper = styled.div`
   position: fixed;
   pointer-events: none;
   top: 0;
@@ -24,7 +24,7 @@ const ToastContainerWrapper = styled.div`
     grid-template-areas: 'tr' 'br';
   }
 `;
-const ToastPositionWrapper = styled.div`
+export const ToastPositionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   &[data-cy='top-right'] {
@@ -62,4 +62,3 @@ const ToastPositionWrapper = styled.div`
     flex-direction: column-reverse;
   }
 `;
-export { ToastContainerWrapper, ToastPositionWrapper };
