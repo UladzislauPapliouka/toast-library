@@ -1,12 +1,12 @@
 {
   "name": "toast-library-wil",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "files": [
     "dist"
   ],
   "module": "dist/index.es.js",
   "repository": "https://github.com/UladzislauPapliouka/toast-library",
-  "homepage": "https://github.com/UladzislauPapliouka/toast-library",
+  "homepage": "https://uladzislaupapliouka.github.io/toast-library/",
   "author": "Uladzislau Papliouka",
   "main": "dist/index.en.js",
   "license": "MIT",
