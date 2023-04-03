@@ -11,7 +11,7 @@ import {
   ToastWrapper,
 } from './styled';
 
-function Toast({
+const Toast = ({
   type,
   toastTitle,
   toastDescription,
@@ -21,32 +21,30 @@ function Toast({
   animationName,
   color,
   margin,
-}) {
-  return (
-    <ToastWrapper
-      type={type}
-      duration={duration}
-      slideDirection={slideDirection}
-      animationName={animationName}
-      draggable
-      onDragEnd={handleClose}
-      data-cy={toastTitle}
-      color={color}
-      margin={margin}
-    >
-      {toastIcons[type]}
-      <ToastDataWrapper>
-        <ToastTitle>{toastTitle}</ToastTitle>
-        {toastDescription && (
-          <ToastDescription>{toastDescription}</ToastDescription>
-        )}
-      </ToastDataWrapper>
-      <CloseButton onClick={handleClose}>
-        <RxCross2 />
-      </CloseButton>
-    </ToastWrapper>
-  );
-}
+}) => (
+  <ToastWrapper
+    type={type}
+    duration={duration}
+    slideDirection={slideDirection}
+    animationName={animationName}
+    draggable
+    onDragEnd={handleClose}
+    data-cy={toastTitle}
+    color={color}
+    margin={margin}
+  >
+    {toastIcons[type]}
+    <ToastDataWrapper>
+      <ToastTitle>{toastTitle}</ToastTitle>
+      {toastDescription && (
+        <ToastDescription>{toastDescription}</ToastDescription>
+      )}
+    </ToastDataWrapper>
+    <CloseButton onClick={handleClose}>
+      <RxCross2 />
+    </CloseButton>
+  </ToastWrapper>
+);
 Toast.propTypes = {
   type: PropTypes.oneOf(['info', 'warning', 'error', 'success']).isRequired,
   toastTitle: PropTypes.string.isRequired,

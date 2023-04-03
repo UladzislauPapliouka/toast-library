@@ -21,6 +21,10 @@ module.exports = {
     'import/no-named-as-default-member': 0,
     'import/extensions': 0,
     'react/forbid-prop-types': 0,
+    'react/function-component-definition': [
+      2,
+      { namedComponents: 'arrow-function' },
+    ],
     'simple-import-sort/imports': [
       'error',
       {

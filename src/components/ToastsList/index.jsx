@@ -5,44 +5,42 @@ import Toast from '@components/Toast';
 import positions from '@constants/positions';
 import singleton from '@service/singleton';
 
-function ToastsList({ toasts, positionName }) {
-  return (
-    <>
-      {toasts.map(
-        ({
-          id,
-          title,
-          description,
-          type,
-          duration,
-          animationName,
-          slideDirection,
-          position,
-          margin,
-          color,
-        }) => {
-          const handleClose = () => singleton.removeToast(id);
-          return (
-            position === positions[positionName] && (
-              <Toast
-                key={id}
-                toastTitle={title}
-                toastDescription={description}
-                type={type}
-                duration={duration}
-                animationName={animationName}
-                slideDirection={slideDirection}
-                handleClose={handleClose}
-                margin={margin}
-                color={color}
-              />
-            )
-          );
-        },
-      )}
-    </>
-  );
-}
+const ToastsList = ({ toasts, positionName }) => (
+  <>
+    {toasts.map(
+      ({
+        id,
+        title,
+        description,
+        type,
+        duration,
+        animationName,
+        slideDirection,
+        position,
+        margin,
+        color,
+      }) => {
+        const handleClose = () => singleton.removeToast(id);
+        return (
+          position === positions[positionName] && (
+            <Toast
+              key={id}
+              toastTitle={title}
+              toastDescription={description}
+              type={type}
+              duration={duration}
+              animationName={animationName}
+              slideDirection={slideDirection}
+              handleClose={handleClose}
+              margin={margin}
+              color={color}
+            />
+          )
+        );
+      },
+    )}
+  </>
+);
 ToastsList.propTypes = {
   positionName: PropTypes.string,
   toasts: PropTypes.array,
