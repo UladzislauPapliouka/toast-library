@@ -7,6 +7,7 @@ import {
   sizesMixin,
   slideAnimation,
   titleTextSizesMixin,
+  toastMarginMixin,
 } from '@utils';
 
 export const ToastWrapper = styled.div`
@@ -15,26 +16,26 @@ export const ToastWrapper = styled.div`
   pointer-events: all;
   place-items: center;
   box-sizing: border-box;
-  margin: ${({ margin }) => margin};
+  ${({ position, margin }) => toastMarginMixin(position, margin)}
   background-color: ${({ type, theme: { colors }, color }) =>
     color || colors[type].background};
   color: ${({ type = 'info', theme: { colors } }) => colors[type].color};
-  ${({ theme: { sizes }, margin }) => sizesMixin('xxl', sizes, margin)};
+  ${({ theme: { sizes } }) => sizesMixin('xxl', sizes)};
   @media screen and (max-width: ${({ theme: { sizes } }) =>
       sizes.displayBreackpoints.xl}px) {
-    ${({ theme: { sizes }, margin }) => sizesMixin('xl', sizes, margin)};
+    ${({ theme: { sizes } }) => sizesMixin('xl', sizes)};
   }
   @media screen and (max-width: ${({ theme: { sizes } }) =>
       sizes.displayBreackpoints.lg}px) {
-    ${({ theme: { sizes }, margin }) => sizesMixin('lg', sizes, margin)};
+    ${({ theme: { sizes } }) => sizesMixin('lg', sizes)};
   }
   @media screen and (max-width: ${({ theme: { sizes } }) =>
       sizes.displayBreackpoints.md}px) {
-    ${({ theme: { sizes }, margin }) => sizesMixin('md', sizes, margin)};
+    ${({ theme: { sizes } }) => sizesMixin('md', sizes)};
   }
   @media screen and (max-width: ${({ theme: { sizes } }) =>
       sizes.displayBreackpoints.sm}px) {
-    ${({ theme: { sizes }, margin }) => sizesMixin('sm', sizes, margin)};
+    ${({ theme: { sizes } }) => sizesMixin('sm', sizes)};
   }
   ${({ duration, slideDirection, animationName }) => {
     if (!animationName) return ``;

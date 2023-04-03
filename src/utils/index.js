@@ -12,4 +12,5 @@ export {
   sizesMixin,
   slidePositionMixin,
   titleTextSizesMixin,
+  toastMarginMixin,
 } from './stylesMixins';

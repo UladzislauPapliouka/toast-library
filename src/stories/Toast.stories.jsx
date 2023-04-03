@@ -23,9 +23,7 @@ export default {
   },
 };
 
-function Template(args) {
-  return <Toast {...args} />;
-}
+const Template = (args) => <Toast {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};

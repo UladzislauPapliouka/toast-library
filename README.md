@@ -47,5 +47,5 @@ To crate toast use `ToastWorker.createToast(toastConfig)`
         slideDirection,  // 'top' | 'bottom' | 'left' | 'right'
         animationName, // 'opacity' | 'slide'
         color, // custom color for one toast
-        margin, // custom margin for one toast (string like margin in CSS)
+        margin, // number
     }

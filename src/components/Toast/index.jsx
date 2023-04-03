@@ -21,6 +21,7 @@ const Toast = ({
   animationName,
   color,
   margin,
+  position,
 }) => (
   <ToastWrapper
     type={type}
@@ -32,6 +33,7 @@ const Toast = ({
     data-cy={toastTitle}
     color={color}
     margin={margin}
+    position={position}
   >
     {toastIcons[type]}
     <ToastDataWrapper>
@@ -56,9 +58,16 @@ Toast.propTypes = {
   animationName: PropTypes.string.isRequired,
   color: PropTypes.string | undefined,
   margin: PropTypes.string | undefined,
+  position: PropTypes.oneOf([
+    'top-left',
+    'top-right',
+    'bottom-left',
+    'bottom-right',
+  ]),
 };
 Toast.defaultProps = {
   color: undefined,
   margin: undefined,
+  position: 'top-left',
 };
 export default Toast;

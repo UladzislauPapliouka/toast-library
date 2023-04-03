@@ -34,6 +34,7 @@ const ToastsList = ({ toasts, positionName }) => (
               handleClose={handleClose}
               margin={margin}
               color={color}
+              position={position}
             />
           )
         );

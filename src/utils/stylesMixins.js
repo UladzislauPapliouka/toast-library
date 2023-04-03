@@ -1,10 +1,19 @@
 import { css } from 'styled-components';
 
-export const sizesMixin = (sizeName, sizes, margin) => css`
+export const toastMarginMixin = (position, margin) => {
+  const topMargin = position.startsWith('top') ? 10 : 0;
+  const rightMargin = position.endsWith('right') ? margin : 0;
+  const bottomMargin = position.startsWith('bottom') ? 10 : 0;
+  const leftMargin = position.endsWith('left') ? margin : 0;
+  return css`
+    margin: ${topMargin}px ${rightMargin}px ${bottomMargin}px ${leftMargin}px;
+  `;
+};
+
+export const sizesMixin = (sizeName, sizes) => css`
   gap: ${sizes.marginSizes[sizeName]}px;
   border-radius: ${sizes.borderRadiuses[sizeName]}px;
   padding: ${sizes.paddingSizes[sizeName]}px ${sizes.paddingSizes[sizeName]}px;
-  margin: ${margin || `${sizes.marginSizes[sizeName] / 2}px`};
   width: ${sizes.toastWidth[sizeName]}px;
 
   max-height: ${sizes.toastMaxHeight[sizeName]}px;

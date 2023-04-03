@@ -44,13 +44,13 @@ export default {
       control: { type: 'color' },
     },
     margin: {
-      defaultValue: undefined,
-      control: { type: 'text' },
+      defaultValue: 10,
+      control: { type: 'number' },
     },
   },
 };
 
-function Template({
+const Template = ({
   type,
   toastTitle,
   toastDescription,
@@ -60,7 +60,7 @@ function Template({
   duration,
   color,
   margin,
-}) {
+}) => {
   const createToast = () =>
     Singleton.createToast({
       title: toastTitle,
@@ -81,7 +81,7 @@ function Template({
       </Button>
     </div>
   );
-}
+};
 
 export const Default = Template.bind({});
 Default.args = {};
