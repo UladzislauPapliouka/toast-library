@@ -1,4 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import {
+  gridAreaFromPositionForDesktop,
+  gridAreaFromPositionForMobile,
+} from '@constants/positions';
 
 export const ToastContainerWrapper = styled.div`
   position: fixed;
@@ -26,39 +31,14 @@ export const ToastContainerWrapper = styled.div`
 `;
 export const ToastPositionWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  &[data-position='top-right'] {
-    grid-area: tr;
+
+  ${({ position, theme: { sizes } }) => css`
+    grid-area: ${gridAreaFromPositionForDesktop[position]};
+    flex-direction: ${position.startsWith('top') ? 'column' : 'column-reverse'};
+    align-items: ${position.endsWith('left') ? 'flex-start' : 'flex-end'}};
+  @media screen and (max-width: ${sizes.displayBreackpoints.md}px) {
+    grid-area: ${gridAreaFromPositionForMobile[position]};
+    align-items: center;
   }
-  &[data-position='bottom-right'] {
-    grid-area: br;
-  }
-  &[data-position='bottom-left'] {
-    grid-area: bl;
-    @media screen and (max-width: ${({ theme: { sizes } }) =>
-        sizes.displayBreackpoints.md}px) {
-      grid-area: br;
-      align-items: center;
-    }
-  }
-  &[data-position='top-left'] {
-    grid-area: tl;
-    @media screen and (max-width: ${({ theme: { sizes } }) =>
-        sizes.displayBreackpoints.md}px) {
-      grid-area: tr;
-      align-items: center;
-    }
-  }
-  &[data-position='top-right'],
-  &[data-position='bottom-right'] {
-    align-items: flex-end;
-    @media screen and (max-width: ${({ theme: { sizes } }) =>
-        sizes.displayBreackpoints.md}px) {
-      align-items: center;
-    }
-  }
-  &[data-position='bottom-left'],
-  &[data-position='bottom-right'] {
-    flex-direction: column-reverse;
-  }
+  `};
 `;

@@ -27,7 +27,7 @@ const ToastContainer = () => {
             <ToastPositionWrapper
               key={positionName}
               data-cy={positions[positionName]}
-              data-position={positions[positionName]}
+              position={positions[positionName]}
             >
               <ToastsList toasts={toasts} positionName={positionName} />
             </ToastPositionWrapper>
