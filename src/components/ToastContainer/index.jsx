@@ -19,7 +19,7 @@ const ToastContainer = () => {
         theme={{
           colors: singleton.toastTheme,
           sizes,
-          containerMargin: singleton.getInstance().containerMargin,
+          containerMargin: singleton.containerMargin,
         }}
       >
         <ToastContainerWrapper>

@@ -21,7 +21,7 @@ function ToastsList({ toasts, positionName }) {
           margin,
           color,
         }) => {
-          const handleClose = () => singleton.getInstance().removeToast(id);
+          const handleClose = () => singleton.removeToast(id);
           return (
             position === positions[positionName] && (
               <Toast
