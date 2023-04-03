@@ -1,62 +1,13 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 import {
-  animationParamsMixin,
   closeButtonSizesMixin,
   descriptionTextSizesMixin,
+  opacityAnimation,
   sizesMixin,
-  slidePositionMixin,
+  slideAnimation,
   titleTextSizesMixin,
-} from '@utils/stylesMixins';
-
-const show = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
-const hide = keyframes`
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    display: none;
-  }`;
-
-const slideIn = (direction) => keyframes`
-  from {
-    opacity: 0;
-    ${slidePositionMixin(direction, 200)}
-}
-to {
-    opacity: 1;
-    ${slidePositionMixin(direction, 0)}
-}
-`;
-const slideOut = (direction) => keyframes`
-    from {
-      opacity: 1;
-      ${slidePositionMixin(direction, 0)}
-    }
-    to {
-      opacity: 0;
-      ${slidePositionMixin(direction, 200)}
-    }
-`;
-
-const opacityAnimation = (duration) => css`
-  animation-name: ${show}, ${hide};
-  ${animationParamsMixin(duration)}
-`;
-
-const slideAnimation = (duration, direction) => css`
-  ${animationParamsMixin(duration)}
-  animation-name: ${slideIn(direction)}, ${slideOut(direction)};
-`;
+} from '@utils';
 
 export const ToastWrapper = styled.div`
   position: relative;
