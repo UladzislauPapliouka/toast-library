@@ -34,8 +34,6 @@ To change theme use  `ToastWorker.setToastTheme(theme)`, `theme` properties :
             color: colorName or HEX,
         },
     };
-To set container margin from viewport edges use `ToastWorker.setToastContainerMargin(number)`
-
 ### Working with toasts
 To crate toast use `ToastWorker.createToast(toastConfig)`
 `toastConfig` structure :

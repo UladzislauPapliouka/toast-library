@@ -15,8 +15,6 @@ export const ToastContainerWrapper = styled.div`
   box-sizing: border-box;
   display: grid;
   overflow: hidden;
-  //TODO: rename that property
-  padding: ${({ theme: { containerMargin } }) => containerMargin}px;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
   grid-template-areas:

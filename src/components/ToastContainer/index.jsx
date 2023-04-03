@@ -19,7 +19,6 @@ const ToastContainer = () => {
         theme={{
           colors: singleton.toastTheme,
           sizes,
-          containerMargin: singleton.containerMargin,
         }}
       >
         <ToastContainerWrapper>
