@@ -6,6 +6,17 @@ on:
       - develop
 
 jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          npm install
+      - name: ESLint and Prettier Check
+        run: |
+          npx eslint . --fix
+          npx prettier . --write
   deploy:
     runs-on: ubuntu-latest
     steps:
