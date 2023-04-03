@@ -5,6 +5,7 @@ import { colorsTheme, positions } from '@constants';
 class Singleton {
   constructor() {
     this.toastTheme = colorsTheme;
+    this.toasts = [];
   }
 
   setToastContainer(toastContainer) {
@@ -26,6 +27,20 @@ class Singleton {
     color,
     margin = 10,
   }) {
+    this.toasts = [
+      ...this.toasts,
+      {
+        title,
+        description,
+        position,
+        type,
+        duration,
+        slideDirection,
+        animationName,
+        color,
+        margin,
+      },
+    ];
     this.toastContainer?.createNewToast({
       title,
       description,
