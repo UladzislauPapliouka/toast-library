@@ -1,6 +1,5 @@
 import { ThemeProvider } from 'styled-components';
-import * as sizes from '../src/constants/sizes';
-import colorsTheme from '../src/constants/theme';
+import { colorsTheme, sizes } from '@constants';
 
 export const parameters = {
     layout: 'centered',

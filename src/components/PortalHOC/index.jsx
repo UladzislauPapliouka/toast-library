@@ -14,8 +14,9 @@ const portalHOC = (Component) => () =>
           colors: singleton.toastTheme,
           sizes,
         }}
-      />
-      <Component />
+      >
+        <Component />
+      </ThemeProvider>
     </ErrorBoundary>,
     document.body,
   );
