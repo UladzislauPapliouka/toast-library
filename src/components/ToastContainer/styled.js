@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import {
   gridAreaFromPositionForDesktop,
   gridAreaFromPositionForMobile,
-} from '@constants/positions';
+} from '@constants';
 
 export const ToastContainerWrapper = styled.div`
   position: fixed;

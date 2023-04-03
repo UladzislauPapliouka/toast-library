@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Toast from '@components/Toast';
-import positions from '@constants/positions';
+import { positions } from '@constants';
 import singleton from '@service/singleton';
 
 const ToastsList = ({ toasts, positionName }) => (

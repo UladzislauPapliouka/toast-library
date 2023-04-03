@@ -4,8 +4,7 @@ import { ThemeProvider } from 'styled-components';
 
 import ErrorBoundary from '@components/ErrorBoudaries';
 import ToastsList from '@components/ToastsList';
-import positions from '@constants/positions';
-import * as sizes from '@constants/sizes';
+import { positions, sizes } from '@constants';
 import useToasts from '@hooks/useToasts';
 import singleton from '@service/singleton';
 
