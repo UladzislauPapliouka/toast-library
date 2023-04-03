@@ -1,9 +1,8 @@
 import React from 'react';
 
+import Button from '@components/Button/Button';
 import ToastContainer from '@components/ToastContainer';
-
-import Button from '../components/Button/Button';
-import Singleton from '../service/singleton';
+import Singleton from '@service/singleton';
 
 export default {
   title: 'Example/ToastContainer',

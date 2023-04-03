@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { RxCross2 } from 'react-icons/rx';
 
-import toastIcons from './config.jsx';
+import toastIcons from './config';
 import {
   CloseButton,
   ToastDataWrapper,

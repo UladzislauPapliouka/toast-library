@@ -7,7 +7,7 @@ import {
   sizesMixin,
   slidePositionMixin,
   titleTextSizesMixin,
-} from '../../utils/stylesMixins';
+} from '@utils/stylesMixins';
 
 const show = keyframes`
   from {

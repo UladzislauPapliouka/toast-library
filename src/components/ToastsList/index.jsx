@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import positions from '../../constants/positions';
-import singleton from '../../service/singleton.js';
-import Toast from '../Toast/index.jsx';
+import Toast from '@components/Toast';
+import positions from '@constants/positions';
+import singleton from '@service/singleton';
 
 function ToastsList({ toasts, positionName }) {
   return (

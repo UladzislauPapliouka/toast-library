@@ -1,9 +1,10 @@
 import babel  from "@rollup/plugin-babel"
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import nodeResolve from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external'
 import alias from '@rollup/plugin-alias'
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
+import * as path from 'path';
 
 
 export default [{
@@ -15,32 +16,32 @@ export default [{
             exports: 'named',
         }],
     plugins: [
-        nodeResolve(),
+
         alias({
             entries: [
                 {
                     find: "@",
-                    replacement: "src",
+                    replacement: path.resolve("src"),
                 },
                 {
                     find: "@constants",
-                    replacement: "src/constants",
+                    replacement: path.resolve("src/constants"),
                 },
                 {
                     find: "@components",
-                    replacement: "src/components",
+                    replacement: path.resolve("src/components"),
                 },
                 {
                     find: "@hooks",
-                    replacement: "src/hooks",
+                    replacement: path.resolve("src/hooks"),
                 },
                 {
                     find: "@utils",
-                    replacement: "src/utils",
+                    replacement: path.resolve("src/utils"),
                 },
                 {
                     find: "@service",
-                    replacement: "src/service",
+                    replacement: path.resolve("src/service"),
                 },
 
             ]
@@ -51,6 +52,7 @@ export default [{
             exclude: 'node_modules/**',
             presets: ['@babel/preset-react']
         }),
+        nodeResolve({extensions: ['.js', '.jsx', '.mjs', '.json'], browser: true }),
       terser({
           maxWorkers: 6
       })

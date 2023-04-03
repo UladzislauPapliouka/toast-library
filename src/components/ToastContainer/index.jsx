@@ -2,12 +2,12 @@ import React from 'react';
 import * as ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
 
-import ErrorBoundary from '@components/ErrorBoudaries/index.jsx';
-import ToastsList from '@components/ToastsList/index.jsx';
-import positions from '@constants/positions.js';
-import * as sizes from '@constants/sizes.js';
-import useToasts from '@hooks/useToasts.js';
-import singleton from '@service/singleton.js';
+import ErrorBoundary from '@components/ErrorBoudaries';
+import ToastsList from '@components/ToastsList';
+import positions from '@constants/positions';
+import * as sizes from '@constants/sizes';
+import useToasts from '@hooks/useToasts';
+import singleton from '@service/singleton';
 
 import { ToastContainerWrapper, ToastPositionWrapper } from './styled';
 

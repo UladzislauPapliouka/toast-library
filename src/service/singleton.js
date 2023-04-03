@@ -1,7 +1,7 @@
 import { v4 } from 'uuid';
 
-import positions from '../constants/positions';
-import colorsTheme from '../constants/theme';
+import positions from '@constants/positions';
+import colorsTheme from '@constants/theme';
 
 class Singleton {
   constructor() {

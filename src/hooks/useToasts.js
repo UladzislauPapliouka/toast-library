@@ -1,6 +1,6 @@
 import { useImperativeHandle, useLayoutEffect, useRef, useState } from 'react';
 
-import Singletone from '@service/singleton.js';
+import Singletone from '@service/singleton';
 
 const useToast = () => {
   const [toasts, setToasts] = useState([]);

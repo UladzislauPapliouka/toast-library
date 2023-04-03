@@ -1,5 +1,5 @@
-import ToastContainer from '@components/ToastContainer/index.jsx';
-import Singleton from '@service/singleton.js';
+import ToastContainer from '@components/ToastContainer';
+import Singleton from '@service/singleton';
 
 const ToastWorker = {
   createToast: Singleton.createToast.bind(Singleton),
