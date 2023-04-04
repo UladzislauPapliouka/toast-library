@@ -18,7 +18,8 @@
     "prepare": "husky install",
     "lint": "eslint . --fix  & prettier . --write",
     "prepublishOnly": "npm run build",
-    "test": "start-server-and-test storybook --ci http://localhost:6006 cy:run"
+    "storybookci": "yarn storybook --ci  ",
+    "test": "start-server-and-test storybookci http://localhost:6006 cy:run"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
