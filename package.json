@@ -14,8 +14,6 @@
     "build": "rollup -c",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "predeploy": "npm run build-storybook",
-    "deploy-storybook": "gh-pages -d storybook-static",
     "prepare": "husky install",
     "lint": "eslint . --fix",
     "prepublishOnly": "npm run build"
@@ -52,7 +50,6 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
     "prettier": "^2.8.7",
     "rollup": "^3.20.2",
