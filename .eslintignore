@@ -1,5 +1,7 @@
-build
 node_modules
-public
 .idea
 rollup.config.mjs
+dist
+cypress
+cypress.config.js
+storybook-static
