@@ -1,5 +1,5 @@
-build
-node_modules
-public
+/build
+/node_modules
+/public
 .idea
-storybook-static
+/storybook-static

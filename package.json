@@ -15,7 +15,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepare": "husky install",
-    "lint": "eslint . --fix",
+    "lint": "eslint . --fix  & prettier . --write",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {

@@ -1,20 +1,30 @@
 Toast library: library to add toasts in your project
+
 ## Installation
+
 ### NPM
+
     npm i toast-library-wil@latest
+
 ### Yarn
+
     yarn add toast-library-wil@latest
+
 ## Usage
+
     import { ToastContainer } from 'toast-library-wil';
+
 Add `ToastContainer` to your application
 
 ## Configure and adding Toast
+
 To work with toast you need to import instance from library
 
     import { ToastWorker } from 'toast-library-wil';
 
 ### Theming
-To change theme use  `ToastWorker.setToastTheme(theme)`, `theme` properties :
+
+To change theme use `ToastWorker.setToastTheme(theme)`, `theme` properties :
 
     {
         info: {
@@ -34,7 +44,9 @@ To change theme use  `ToastWorker.setToastTheme(theme)`, `theme` properties :
             color: colorName or HEX,
         },
     };
+
 ### Working with toasts
+
 To crate toast use `ToastWorker.createToast(toastConfig)`
 `toastConfig` structure :
 
