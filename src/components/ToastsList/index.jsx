@@ -50,4 +50,4 @@ ToastsList.defaultProps = {
   positionName: '',
   toasts: [],
 };
-export default ToastsList;
+export default React.memo(ToastsList);
