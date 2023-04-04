@@ -18,3 +18,13 @@ jobs:
         run: |
           npx eslint . --fix
           npx prettier . --write
+    run-test:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - name: Install dependencies
+          run: |
+            npm install
+        - name: Run tests
+          run: |
+            npm test
